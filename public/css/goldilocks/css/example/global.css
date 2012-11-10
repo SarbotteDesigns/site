@@ -1,0 +1,25 @@
+@import url("../global.css");
+
+/*
+This file contains the unique styles needed for example.html which do not appear in /css/global.css
+----------------------------------------------------------------------------------------
+*/
+
+html {
+  background: rgb(244, 244, 244);
+}
+
+/* 5. GLOBAL LAYOUT & GLOBAL CUSTOM TYPOGRAPHY
+----------------------------------------------------------------------------------------*/
+h1 {
+  text-align: center;
+  font-size: 2.618em;
+  line-height: 1.2em;
+}
+
+h3 { text-transform:uppercase; letter-spacing:0.12em;  text-align: center;}
+
+h3, h4, h5, h6 { font-weight: bold; }
+
+/* 6. CUSTOM LAYOUT & TYPOGRAPHY (Baby bear)
+----------------------------------------------------------------------------------------*/
