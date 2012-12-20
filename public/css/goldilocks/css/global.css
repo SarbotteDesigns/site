@@ -108,7 +108,7 @@ a:active, a:focus { outline: none; }
 
 /* 6. CUSTOM LAYOUT & TYPOGRAPHY (Baby bear)
 ----------------------------------------------------------------------------------------*/
-#container {
+#containerS {
   padding: 0.809em;
   max-width: 30em;
   margin: auto;

@@ -1,0 +1,33 @@
+%html
+  %head
+    %title Sarbotte designs
+    %link{:href => "http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic", :rel=>'stylesheet', :type=>'text/css'}
+    %link{:href => "/css/goldilocks/css/example/global.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/goldilocks/css/example/layout.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/bootstrap.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+  %body
+    %div.containerS.cf
+      %hgroup
+        %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%;"}
+          Sarbotte designs
+      %div{:id=>'application', :style=>'text-align: center; width: 400px; padding-top: 10em; margin: auto;'}
+        %form{:action=>'/application', :method=>'post', :class=>'form-horizontal'}
+          %fieldset
+            %legend Information
+            %div{:class=>'control-group'}
+              %label{:class=>'control-label'}
+                Prénom
+              %div{:class=>'controls'}
+                %input{:name=>'prenom'}
+            %div{:class=>'control-group'}
+              %label{:class=>'control-label'}
+                Nom
+              %div{:class=>'controls'}
+                %input{:name=>'nom'}
+            %div{:class=>'control-group'}
+              %label{:class=>'control-label'}
+                Degré de Sarbottisme
+              %div{:class=>'controls'}
+                %textarea{:name=>'sarbottisme'}
+
+            %button{:type=>'submit', :class=>'btn'} Valider
