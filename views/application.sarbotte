@@ -5,7 +5,7 @@
 > #{params[:prenom]} #{params[:nom]}
 
 {::comment}
-#{params[:email]}
+#{params[:email].gsub('@', ' SARBOTTE ')}
 {:/comment}
 
 ## Sarbottisme
