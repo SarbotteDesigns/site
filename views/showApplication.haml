@@ -13,5 +13,5 @@
         #{application}
         %div{:style=>"margin-top: 100px;"}
           Retrouvez la liste des postulants
-          %a{:href=>'/applications'} ici
-          \.
+          = succeed '.' do
+            %a{:href=>'/applications'} ici
