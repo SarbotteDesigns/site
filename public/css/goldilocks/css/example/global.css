@@ -21,6 +21,11 @@ h1 {
   color: white;
 }
 
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
 h3 { letter-spacing:0.12em;  text-align: center; text-transform: uppercase;/*font-family: Qwigley; font-weight: normal!important; font-size: 1.8em;*/}
 
 h3, h4, h5, h6 { font-weight: bold; }
