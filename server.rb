@@ -15,13 +15,14 @@ end
 
 post '/application/?' do
   nom = params[:nom]
-  application = File.open("views/application.md", "rb:UTF-8").read
+  application = File.open("views/application.sarbotte", "rb:UTF-8").read
   File.open("public/applications/#{nom}.md", 'w:UTF-8') {|f| f.write(eval '"' + application + '"') }
   redirect to("/application/#{nom}")
 end
 
 get '/application/:nom/?' do |nom|
   application = File.open("public/applications/#{nom}.md", "rb:UTF-8").read
+
   application = Kramdown::Document.new(application).to_html
   haml :showApplication, :locals=>{:application => application}
 end
