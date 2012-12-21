@@ -25,19 +25,19 @@
               %label{:class=>'control-label', :for=>'prenom'}
                 Prénom
               %div{:class=>'controls'}
-                %input{:type=>'text', :name=>'prenom', id:'prenom', :placeholder=>'Prénom'}
+                %input{:type=>'text', :name=>'prenom', id:'prenom', :placeholder=>'Prénom', :class=>'input-xlarge'}
             - # nom
             %div{:class=>'control-group'}
               %label{:class=>'control-label', :for=>'nom'}
                 Nom
               %div{:class=>'controls'}
-                %input{:type=>'text', :name=>'nom', :id=>'nom', :placeholder=>'Nom'}
+                %input{:type=>'text', :name=>'nom', :id=>'nom', :placeholder=>'Nom', :class=>'input-xlarge'}
             - # email
             %div{:class=>'control-group'}
               %label{:class=>'control-label', :for=>'email'}
                 Email
               %div{:class=>'controls'}
-                %input{:type=>'text', :name=>'email', :id=>'email', :placeholder=>'Email'}
+                %input{:type=>'text', :name=>'email', :id=>'email', :placeholder=>'Email', :class=>'input-xlarge'}
                 %span{:class=>'help-block'}
                   %i Ne sera pas utilisé à des fins commerciales
 
@@ -52,7 +52,7 @@
               %label{:class=>'control-label', :for=>'experienceSarbottisme'}
                 Réponse
               %div{:class=>'controls'}
-                %textarea{:name=>'experienceSarbottisme', :id=>'experienceSarbottisme', :placeholder=>'Réponse'}
+                %textarea{:name=>'experienceSarbottisme', :id=>'experienceSarbottisme', :placeholder=>'Réponse', :class=>'input-xlarge'}
 
             - # sarbottisme
             %p
@@ -62,7 +62,7 @@
               %label{:class=>'control-label', :for=>'connuSarbotteDesigns'}
                 Réponse
               %div{:class=>'controls'}
-                %textarea{:name=>'connuSarbotteDesigns', :id=>'connuSarbotteDesigns', :placeholder=>'Réponse'}
+                %textarea{:name=>'connuSarbotteDesigns', :id=>'connuSarbotteDesigns', :placeholder=>'Réponse', :class=>'input-xlarge'}
 
           %fieldset
             %legend Test d'aptitudes
@@ -70,14 +70,14 @@
             - # js
             %p
               %strong
-                %i Que renvoie l'expression suivante :
+                %i Que renvoie l'expression suivante en javasript :
                 %code typeof NaN
                 %i ?
             %div{:class=>'control-group'}
               %label{:class=>'control-label', :for=>'testJs'}
                 Réponse
               %div{:class=>'controls'}
-                %textarea{:name=>'testJs', :id=>'testJs', :placeholder=>'Réponse'}
+                %textarea{:name=>'testJs', :id=>'testJs', :placeholder=>'Réponse', :class=>'input-xlarge'}
             - # piliers Sarbottisme
             %p
               %strong
@@ -86,7 +86,7 @@
               %label{:class=>'control-label', :for=>'pilliersSarbottisme'}
                 Réponse
               %div{:class=>'controls'}
-                %textarea{:name=>'pilliersSarbottisme', :id=>'pilliersSarbottisme', :placeholder=>'Réponse'}
+                %textarea{:name=>'pilliersSarbottisme', :id=>'pilliersSarbottisme', :placeholder=>'Réponse', :class=>'input-xlarge'}
 
 
             %button{:type=>'submit', :class=>'btn'} Valider
