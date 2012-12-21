@@ -10,8 +10,7 @@
       %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%;"}
         %a{:href=>'/'} Sarbotte designs
       %div{:id=>'application', :style=>'width: 600px; padding-top: 10em; margin: auto;'}
-        #{application}
-        %div{:style=>"margin-top: 100px;"}
-          Retrouvez la liste des postulants
-          %a{:href=>'/applications'} ici
-          \.
+        %h2 Postulants
+        - applicationList.each do |application|
+          %div
+            %a{:href=>"/application/#{application}"} #{application}

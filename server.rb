@@ -13,6 +13,14 @@ get '/application/?' do
   haml :application
 end
 
+get '/applications/?' do
+  applicationList = []
+  Dir["public/applications/*.md"].each do |application|
+    applicationList << application[/public\/applications\/(.*)\.md/, 1]
+  end
+  haml :listApplications, :locals=>{:applicationList => applicationList}
+end
+
 post '/application/?' do
   nom = params[:nom]
   application = File.open("views/application.sarbotte", "rb:UTF-8").read
@@ -22,7 +30,6 @@ end
 
 get '/application/:nom/?' do |nom|
   application = File.open("public/applications/#{nom}.md", "rb:UTF-8").read
-
   application = Kramdown::Document.new(application).to_html
   haml :showApplication, :locals=>{:application => application}
 end
