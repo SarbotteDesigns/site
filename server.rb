@@ -3,7 +3,6 @@
 require 'sinatra'
 require 'haml'
 require 'kramdown'
-require 'json'
 
 get '/' do
   haml :index
