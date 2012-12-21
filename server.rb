@@ -22,7 +22,6 @@ end
 
 get '/application/:nom/?' do |nom|
   application = File.open("public/applications/#{nom}.md", "rb:UTF-8").read
-
   application = Kramdown::Document.new(application).to_html
   haml :showApplication, :locals=>{:application => application}
 end
