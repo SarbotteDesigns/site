@@ -16,56 +16,24 @@
 
           %fieldset
             %legend Informations
-            %p
-              %strong
-                %i Veuillez saisir les informations suivantes
 
-            - # prénom
-            %div{:class=>'control-group'}
-              %label{:class=>'control-label', :for=>'prenom'}
-                Prénom
-              %div{:class=>'controls'}
-                %input{:type=>'text', :name=>'prenom', id:'prenom', :placeholder=>'Prénom', :class=>'input-xlarge'}
-            - # nom
-            %div{:class=>'control-group'}
-              %label{:class=>'control-label', :for=>'nom'}
-                Nom
-              %div{:class=>'controls'}
-                %input{:type=>'text', :name=>'nom', :id=>'nom', :placeholder=>'Nom', :class=>'input-xlarge'}
-            - # email
-            %div{:class=>'control-group'}
-              %label{:class=>'control-label', :for=>'email'}
-                Email
-              %div{:class=>'controls'}
-                %input{:type=>'text', :name=>'email', :id=>'email', :placeholder=>'Email', :class=>'input-xlarge'}
-                %span{:class=>'help-block'}
-                  %i Ne sera pas utilisé à des fins commerciales
+            = question('Veuillez saisir les informations suivantes')
+            = bsInput('input', 'text', 'prenom', 'Prénom', 'Prénom')
+            = bsInput('input', 'text', 'nom', 'Nom', 'Nom')
+            = bsInput('input', 'text', 'email', 'Email', 'Email', 'Ne sera pas utilisé à des fins commerciales')
 
           %fieldset
             %legend Sarbottisme
 
-            - # sarbottisme
-            %p
-              %strong
-                %i Veuillez décrire de façon succinte et détaillée votre expérience du Sarbottisme
-            %div{:class=>'control-group'}
-              %label{:class=>'control-label', :for=>'experienceSarbottisme'}
-                Réponse
-              %div{:class=>'controls'}
-                %textarea{:name=>'experienceSarbottisme', :id=>'experienceSarbottisme', :placeholder=>'Réponse', :class=>'input-xlarge'}
-
-            - # sarbottisme
-            %p
-              %strong
-                %i Comment avez-vous connu Sarbotte Designs ?
-            %div{:class=>'control-group'}
-              %label{:class=>'control-label', :for=>'connuSarbotteDesigns'}
-                Réponse
-              %div{:class=>'controls'}
-                %textarea{:name=>'connuSarbotteDesigns', :id=>'connuSarbotteDesigns', :placeholder=>'Réponse', :class=>'input-xlarge'}
+            = question('Veuillez décrire de façon succinte et détaillée votre expérience du Sarbottisme')
+            = bsInput('textarea', '', 'experienceSarbottisme', 'Réponse', 'Réponse')
+            
+            = question('Comment avez-vous connu Sarbotte Designs ?')
+            = bsInput('textarea', '', 'connuSarbotteDesigns', 'Réponse', 'Réponse')
 
           %fieldset
             %legend Test d'aptitudes
+
 
             - # js
             %p
@@ -73,20 +41,19 @@
                 %i Que renvoie l'expression suivante en javascript :
                 %code typeof NaN
                 %i ?
-            %div{:class=>'control-group'}
-              %label{:class=>'control-label', :for=>'testJs'}
-                Réponse
-              %div{:class=>'controls'}
-                %textarea{:name=>'testJs', :id=>'testJs', :placeholder=>'Réponse', :class=>'input-xlarge'}
-            - # piliers Sarbottisme
+            = bsInput('textarea', '', 'testJs', 'Réponse', 'Réponse')
+            
+            - # js
             %p
               %strong
-                %i Quels sont les cinq pilliers du Sarbottisme ?
+                %i Quelle technologie web ?
             %div{:class=>'control-group'}
-              %label{:class=>'control-label', :for=>'pilliersSarbottisme'}
-                Réponse
               %div{:class=>'controls'}
-                %textarea{:name=>'pilliersSarbottisme', :id=>'pilliersSarbottisme', :placeholder=>'Réponse', :class=>'input-xlarge'}
-
-
+                %label{:class=>'control-label'}
+                  %input{:type=>'radio', :name=>'techno'}
+                  Struts
+            - # piliers Sarbottisme
+            = question('Quels sont les cinq pilliers du Sarbottisme ')
+            = bsInput('textarea', '', 'pilliersSarbottisme', 'Réponse', 'Réponse')
+            
             %button{:type=>'submit', :class=>'btn'} Valider

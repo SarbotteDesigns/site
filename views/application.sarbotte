@@ -5,7 +5,9 @@
 > #{params[:prenom]} #{params[:nom]}
 
 {::comment}
-#{params[:email].gsub('@', ' SARBOTTE ')}
+
+> #{params[:email].gsub('@', ' SARBOTTE ')}
+
 {:/comment}
 
 ## Sarbottisme
@@ -24,7 +26,7 @@ Vos tests d'aptitudes sont actuellement analisés et vous seront communiqués ut
 
 {::comment}
 
-**Que renvoie l'expression suivante :**
+**Que renvoie l'expression suivante : typeof NaN ?**
 
 > #{params[:testJs]}
 

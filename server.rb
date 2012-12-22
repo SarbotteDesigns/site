@@ -4,6 +4,8 @@ require 'sinatra'
 require 'haml'
 require 'kramdown'
 
+require './sarbotteForm'
+
 get '/' do
   haml :index
 end
