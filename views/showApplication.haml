@@ -1,17 +1,9 @@
-%html
-  %head
-    %title Sarbotte designs
-    %link{:href => "http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic", :rel=>'stylesheet', :type=>'text/css'}
-    %link{:href => "/css/goldilocks/css/example/global.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/goldilocks/css/example/layout.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/bootstrap.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-  %body
-    %div.containerS.cf
-      %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%;"}
-        %a{:href=>'/'} Sarbotte designs
-      %div{:id=>'application', :style=>'width: 600px; padding-top: 10em; margin: auto;'}
-        #{application}
-        %div{:style=>"margin-top: 100px;"}
-          Retrouvez la liste des postulants
-          = succeed '.' do
-            %a{:href=>'/applications'} ici
+%div.containerS.cf
+  %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%;"}
+    %a{:href=>'/'} Sarbotte designs
+  %div{:id=>'application', :style=>'width: 600px; padding-top: 10em; margin: auto;'}
+    #{application}
+    %div{:style=>"margin-top: 100px;"}
+      Retrouvez la liste des postulants
+      = succeed '.' do
+        %a{:href=>'/applications'} ici

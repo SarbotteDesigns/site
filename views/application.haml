@@ -1,59 +1,51 @@
-%html
-  %head
-    %title Sarbotte designs
-    %link{:href => "http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic", :rel=>'stylesheet', :type=>'text/css'}
-    %link{:href => "/css/goldilocks/css/example/global.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/goldilocks/css/example/layout.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/bootstrap.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-  %body
-    %div.containerS.cf
-      %hgroup
-        %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%;"}
-          %a{:href=>'/'} Sarbotte designs
-      %div{:id=>'application', :style=>'text-align: center; width: 600px; padding-top: 10em; margin: auto;'}
+%div.containerS.cf
+  %hgroup
+    %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%;"}
+      %a{:href=>'/'} Sarbotte designs
+  %div{:id=>'application', :style=>'text-align: center; width: 600px; padding-top: 10em; margin: auto;'}
 
-        %form{:action=>'/application', :method=>'post', :class=>'form-horizontal', :style=>'text-align: initial;'}
+    %form{:action=>'/application', :method=>'post', :class=>'form-horizontal', :style=>'text-align: initial;'}
 
-          %fieldset
-            %legend Informations
+      %fieldset
+        %legend Informations
 
-            = question('Veuillez saisir les informations suivantes')
-            = bsInput('input', 'text', 'prenom', 'Prénom', 'Prénom')
-            = bsInput('input', 'text', 'nom', 'Nom', 'Nom')
-            = bsInput('input', 'text', 'email', 'Email', 'Email', 'Ne sera pas utilisé à des fins commerciales')
+        = question('Veuillez saisir les informations suivantes')
+        = bsInput('input', 'text', 'prenom', 'Prénom', 'Prénom')
+        = bsInput('input', 'text', 'nom', 'Nom', 'Nom')
+        = bsInput('input', 'text', 'email', 'Email', 'Email', 'Ne sera pas utilisé à des fins commerciales')
 
-          %fieldset
-            %legend Sarbottisme
+      %fieldset
+        %legend Sarbottisme
 
-            = question('Veuillez décrire de façon succinte et détaillée votre expérience du Sarbottisme')
-            = bsInput('textarea', '', 'experienceSarbottisme', 'Réponse', 'Réponse')
-            
-            = question('Comment avez-vous connu Sarbotte Designs ?')
-            = bsInput('textarea', '', 'connuSarbotteDesigns', 'Réponse', 'Réponse')
+        = question('Veuillez décrire de façon succinte et détaillée votre expérience du Sarbottisme')
+        = bsInput('textarea', '', 'experienceSarbottisme', 'Réponse', 'Réponse')
+        
+        = question('Comment avez-vous connu Sarbotte Designs ?')
+        = bsInput('textarea', '', 'connuSarbotteDesigns', 'Réponse', 'Réponse')
 
-          %fieldset
-            %legend Test d'aptitudes
+      %fieldset
+        %legend Test d'aptitudes
 
 
-            - # js
-            %p
-              %strong
-                %i Que renvoie l'expression suivante en javascript :
-                %code typeof NaN
-                %i ?
-            = bsInput('textarea', '', 'testJs', 'Réponse', 'Réponse')
-            
-            - # js
-            %p
-              %strong
-                %i Quelle technologie web ?
-            %div{:class=>'control-group'}
-              %div{:class=>'controls'}
-                %label{:class=>'control-label'}
-                  %input{:type=>'radio', :name=>'techno'}
-                  Struts
-            - # piliers Sarbottisme
-            = question('Quels sont les cinq pilliers du Sarbottisme ')
-            = bsInput('textarea', '', 'pilliersSarbottisme', 'Réponse', 'Réponse')
-            
-            %button{:type=>'submit', :class=>'btn'} Valider
+        - # js
+        %p
+          %strong
+            %i Que renvoie l'expression suivante en javascript :
+            %code typeof NaN
+            %i ?
+        = bsInput('textarea', '', 'testJs', 'Réponse', 'Réponse')
+        
+        - # js
+        %p
+          %strong
+            %i Quelle technologie web ?
+        %div{:class=>'control-group'}
+          %div{:class=>'controls'}
+            %label{:class=>'control-label'}
+              %input{:type=>'radio', :name=>'techno'}
+              Struts
+        - # piliers Sarbottisme
+        = question('Quels sont les cinq pilliers du Sarbottisme ')
+        = bsInput('textarea', '', 'pilliersSarbottisme', 'Réponse', 'Réponse')
+        
+        %button{:type=>'submit', :class=>'btn'} Valider
