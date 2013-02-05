@@ -1,0 +1,15 @@
+#editor{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  min-height: 500px;
+  width: 50%;
+  text-align: left;
+}
+
+#editors{
+  width: 100%;
+  margin: auto;
+  position: relative;
+}

@@ -35,6 +35,10 @@ get '/application/:nom/?' do |nom|
   haml :showApplication, :locals=>{:application => application}
 end
 
+get '/sqt/?' do
+  haml :sqt
+end
+
 not_found do
   'Page non trouvée.'
 end

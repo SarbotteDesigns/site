@@ -1,0 +1,154 @@
+[[
+   "start",
+  ["comment","#!/usr/bin/ruby"]
+],[
+   "start"
+],[
+   "start",
+  ["comment","# Program to find the factorial of a number"]
+],[
+   "start",
+  ["keyword","def"],
+  ["text"," "],
+  ["identifier","fact"],
+  ["paren.lparen","("],
+  ["identifier","n"],
+  ["paren.rparen",")"]
+],[
+   "start",
+  ["text","    "],
+  ["keyword","if"],
+  ["text"," "],
+  ["identifier","n"],
+  ["text"," "],
+  ["keyword.operator","=="],
+  ["text"," "],
+  ["constant.numeric","0"]
+],[
+   "start",
+  ["text","        "],
+  ["constant.numeric","1"]
+],[
+   "start",
+  ["text","    "],
+  ["keyword","else"]
+],[
+   "start",
+  ["text","        "],
+  ["identifier","n"],
+  ["text"," "],
+  ["keyword.operator","*"],
+  ["text"," "],
+  ["identifier","fact"],
+  ["paren.lparen","("],
+  ["identifier","n"],
+  ["constant.numeric","-1"],
+  ["paren.rparen",")"]
+],[
+   "start",
+  ["text","    "],
+  ["keyword","end"]
+],[
+   "start",
+  ["keyword","end"]
+],[
+   "start"
+],[
+   "start",
+  ["support.function","puts"],
+  ["text"," "],
+  ["identifier","fact"],
+  ["paren.lparen","("],
+  ["support.class","ARGV"],
+  ["paren.lparen","["],
+  ["constant.numeric","0"],
+  ["paren.rparen","]"],
+  ["text","."],
+  ["identifier","to_i"],
+  ["paren.rparen",")"]
+],[
+   "start"
+],[
+   "start",
+  ["keyword","class"],
+  ["text"," "],
+  ["support.class","Range"]
+],[
+   "start",
+  ["text","  "],
+  ["keyword","def"],
+  ["text"," "],
+  ["identifier","to_json"],
+  ["paren.lparen","("],
+  ["keyword.operator","*"],
+  ["identifier","a"],
+  ["paren.rparen",")"]
+],[
+   "start",
+  ["text","    "],
+  ["paren.lparen","{"]
+],[
+   "start",
+  ["text","      "],
+  ["string","'json_class'"],
+  ["text","   "],
+  ["punctuation.separator.key-value","=>"],
+  ["text"," "],
+  ["variable.language","self"],
+  ["text","."],
+  ["keyword","class"],
+  ["text","."],
+  ["identifier","name"],
+  ["text",", "],
+  ["comment","# = 'Range'"]
+],[
+   "start",
+  ["text","      "],
+  ["string","'data'"],
+  ["text","         "],
+  ["punctuation.separator.key-value","=>"],
+  ["text"," "],
+  ["paren.lparen","["],
+  ["text"," "],
+  ["identifier","first"],
+  ["text",", "],
+  ["identifier","last"],
+  ["text",", "],
+  ["identifier","exclude_end"],
+  ["text","? "],
+  ["paren.rparen","]"]
+],[
+   "start",
+  ["text","    "],
+  ["paren.rparen","}"],
+  ["text","."],
+  ["identifier","to_json"],
+  ["paren.lparen","("],
+  ["keyword.operator","*"],
+  ["identifier","a"],
+  ["paren.rparen",")"]
+],[
+   "start",
+  ["text","  "],
+  ["keyword","end"]
+],[
+   "start",
+  ["keyword","end"]
+],[
+   "start"
+],[
+   "start",
+  ["paren.lparen","{"],
+  ["constant.other.symbol.ruby",":id"],
+  ["text"," "],
+  ["punctuation.separator.key-value","=>"],
+  ["text"," "],
+  ["constant.numeric","34"],
+  ["text",", "],
+  ["constant.other.symbol.ruby",":sdfasdfasdf"],
+  ["text"," "],
+  ["punctuation.separator.key-value","=>"],
+  ["text"," "],
+  ["string","\"asdasdads\""],
+  ["paren.rparen","}"]
+]]
