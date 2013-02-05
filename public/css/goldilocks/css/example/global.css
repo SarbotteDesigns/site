@@ -40,13 +40,17 @@ h2 {
   font-family: Lato;
   font-size: 2em;
   font-weight: bold;
+}
+
+hgroup h2{
+  -webkit-box-shadow: 0px 1px 2px 1px #DDD;
+  box-shadow: 0px 1px 2px 1px #DDD;
   background-color: white;
   text-align: center;
 }
 
-hgroup h2{
--webkit-box-shadow: 0px 1px 2px 1px #DDD;
-box-shadow: 0px 1px 2px 1px #DDD;
+#application h2{
+  margin-top: 0.8em;
 }
 
 h3 { letter-spacing:0.12em;  text-align: center; text-transform: uppercase;/*font-family: Qwigley; font-weight: normal!important; font-size: 1.8em;*/}
