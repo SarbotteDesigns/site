@@ -3,24 +3,30 @@
   %hgroup
     %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%; z-index: 100;"}
       %a{:href=>'/'} Sarbotte designs
-  %div{:id=>'application', :style=>'text-align: center; width: 80%; padding-top: 10em; margin: auto;'}
+    %h2{:style=>'position: fixed; width: 100%; z-index: 100;'}
+      Sarbotte Quality Tool
+  %div{:id=>'application', :style=>'text-align: center; width: 80%; padding-top: 14em; margin: auto;'}
 
     %div#editors
-      %div#editor
+      %div.left
+        %h3.sqt Your code
+        %div#editor
 
-      %div
-        %div
-          Total :
-          %span#total
-        %div
-          Js & Css :
-          %span#jsAndCss
-        %div
-          Sarbotte Quality Index :
-          %span#sqi
+      %div#result.right
+        %h3.sqt Your results
+        %div.paddingL20.results
+          %div
+            %b Total :
+            %span#total
+          %div
+            %b Js & Css :
+            %span#jsAndCss
+          %div
+            %b Sarbotte Quality Index :
+            %span#sqi
 
     %script{:src=>"scripts/lib/jquery/jquery.js"}
-    %script{:'data-main'=>"scripts/main.js", :src=>"scripts/require.js"}
+    %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js"}
 
     %script
 

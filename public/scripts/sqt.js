@@ -32,8 +32,10 @@
     editor.setShowPrintMargin(false);
     editor.renderer.setHScrollBarAlwaysVisible(false);
     editor.renderer.setShowGutter(false);
+    editor.setHighlightActiveLine(false);
     editor.setTheme("ace/theme/clouds");
-    editor.getSession().setMode("ace/mode/xml");
+    editor.getSession().setMode("ace/mode/html");
+    editor.renderer.setPadding(20);
     editor.getSession().on("change", debounce(function(){
         $.ajax({
           url: "/sqt",
