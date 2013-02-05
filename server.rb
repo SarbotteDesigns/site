@@ -3,6 +3,8 @@
 require 'sinatra'
 require 'haml'
 require 'kramdown'
+require 'sqt'
+require 'json'
 
 require './sarbotteForm'
 
@@ -37,6 +39,11 @@ end
 
 get '/sqt/?' do
   haml :sqt
+end
+
+post '/sqt/?' do
+  content_type :json
+  { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
 end
 
 not_found do

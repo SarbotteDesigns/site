@@ -1,24 +1,50 @@
 
 (function(){
 
+  // From underscore.js
+  debounce = function(func, wait, immediate) {
+    var timeout, result;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) result = func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) result = func.apply(context, args);
+      return result;
+    };
+  };
+
   require.config({
-    //baseUrl: window.location.protocol + "//" + window.location.host +
-    //    window.location.pathname.split("/").slice(0, -1).join("/"),
     paths: {
-        ace: "lib/ace"
+        ace: "lib/ace",
+        jquery: 'lib/jquery/jquery'
     }
   });
 
+  requirejs(['ace/ace', 'jquery'], function(ace, $) {
 
-  requirejs(['ace/ace', 'ace/mode/javascript_worker'], function(ace) {
-
-    require("ace/edit_session").EditSession.prototype.$startWorker = function(){}
+    require("ace/edit_session").EditSession.prototype.$startWorker = function(){};
     var editor = ace.edit("editor");
     editor.setShowPrintMargin(false);
     editor.renderer.setHScrollBarAlwaysVisible(false);
     editor.renderer.setShowGutter(false);
     editor.setTheme("ace/theme/clouds");
     editor.getSession().setMode("ace/mode/xml");
+    editor.getSession().on("change", debounce(function(){
+        $.ajax({
+          url: "/sqt",
+          method: 'post',
+          data: {sarbotte: editor.getValue()}
+        }).done(function(data){
+          $('#total').html(data.sqr.totalLength);
+          $('#jsAndCss').html(data.sqr.jsAndCssLength);
+          $('#sqi').html(Math.round(data.sqr.sqi*100)/100);
+        });
+    }, 1000));
 
   });
 

@@ -2,12 +2,24 @@
 %div.containerS.cf
   %hgroup
     %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%; z-index: 100;"}
-      %a{:href=>'/'} Sarbotte designs
+      %a{:href=>'/'}
   %div{:id=>'application', :style=>'text-align: center; width: 80%; padding-top: 10em; margin: auto;'}
 
     %div#editors
-      %div#editor var a = 2;
+      %div#editor
 
+      %div
+        %div
+          Total :
+          %span#total
+        %div
+          Js & Css :
+          %span#jsAndCss
+        %div
+          Sarbotte Quality Index :
+          %span#sqi
+
+    %script{:src=>"scripts/lib/jquery/jquery.js"}
     %script{:'data-main'=>"scripts/main.js", :src=>"scripts/require.js"}
 
     %script
