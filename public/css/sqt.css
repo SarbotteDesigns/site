@@ -1,0 +1,35 @@
+#editor{
+  min-height: 500px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 1px solid #DEDEDE;
+}
+
+#editors{
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+#results{
+  font-size: 1.2em;
+}
+
+h3.sqt{
+  font-size: 1.2em;
+}
+
+#result{
+  padding-left: 20px;
+}
+
+.left{
+  float: left;
+  width: 49%;
+}
+
+.right{
+  float: right;
+  width: 49%;
+}

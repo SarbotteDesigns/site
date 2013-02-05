@@ -1,0 +1,34 @@
+%link{:href => "/css/sqt.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+%div.containerS.cf
+  %hgroup
+    %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%; z-index: 100;"}
+      %a{:href=>'/'} Sarbotte designs
+    %h2{:style=>'position: fixed; width: 100%; z-index: 100; padding: 5 0;'}
+      Sarbotte Quality Tool
+  %div{:id=>'application', :style=>'text-align: center; width: 80%; padding-top: 16em; margin: auto;'}
+
+    %div#editors
+      %div.left
+        %h3.sqt Your code
+        %div#editor
+
+      %div#result.right
+        %h3.sqt Your results
+        %div.results
+          %div
+            %b Total:
+            %span#total
+            bytes
+          %div
+            %b Js & Css:
+            %span#jsAndCss
+            bytes
+          %div
+            %b Sarbotte Quality Index :
+            %span#sqi
+
+    %script{:src=>"scripts/lib/jquery/jquery.js"}
+    %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js"}
+
+    %script
+

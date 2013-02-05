@@ -1,8 +1,10 @@
 %div.containerS.cf
   %hgroup
-    %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%;"}
+    %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%; z-index: 100;"}
       %a{:href=>'/'} Sarbotte designs
-  %div{:id=>'application', :style=>'text-align: center; width: 600px; padding-top: 10em; margin: auto;'}
+    %h2{:style=>'position: fixed; width: 100%; z-index: 100; padding: 5 0;'}
+      Application
+  %div{:id=>'application', :style=>'text-align: center; width: 600px; padding-top: 16em; margin: auto;'}
 
     %form{:action=>'/application', :method=>'post', :class=>'form-horizontal', :style=>'text-align: initial;'}
 
