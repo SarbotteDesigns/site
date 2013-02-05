@@ -3,6 +3,8 @@
 require 'sinatra'
 require 'haml'
 require 'kramdown'
+require 'sqt'
+require 'json'
 
 require './sarbotteForm'
 
@@ -33,6 +35,15 @@ get '/application/:nom/?' do |nom|
   application = File.open("public/applications/#{nom}.md", "rb:UTF-8").read
   application = Kramdown::Document.new(application).to_html
   haml :showApplication, :locals=>{:application => application}
+end
+
+get '/sqt/?' do
+  haml :sqt
+end
+
+post '/sqt/?' do
+  content_type :json
+  { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
 end
 
 not_found do

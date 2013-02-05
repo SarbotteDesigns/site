@@ -7,8 +7,11 @@
     %link{:href => "/css/bootstrap.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
   %body
     %div.containerS.cf
-      %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%;"}
-        %a{:href=>'/'} Sarbotte designs
+      %hgroup
+        %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%; z-index: 100;"}
+          %a{:href=>'/'} Sarbotte designs
+        %h2{:style=>'position: fixed; width: 100%; z-index: 100; padding: 5 0;'}
+          Applications
       %div{:id=>'application', :style=>'width: 600px; padding-top: 10em; margin: auto;'}
         %h2 Postulants
         - applicationList.each do |application|
