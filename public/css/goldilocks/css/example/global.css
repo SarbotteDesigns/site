@@ -44,6 +44,11 @@ h2 {
   text-align: center;
 }
 
+hgroup h2{
+-webkit-box-shadow: 0px 1px 2px 1px #DDD;
+box-shadow: 0px 1px 2px 1px #DDD;
+}
+
 h3 { letter-spacing:0.12em;  text-align: center; text-transform: uppercase;/*font-family: Qwigley; font-weight: normal!important; font-size: 1.8em;*/}
 
 h3, h4, h5, h6 { font-weight: bold; }
