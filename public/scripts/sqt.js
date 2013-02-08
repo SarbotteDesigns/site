@@ -1,59 +1,57 @@
 
-(function(){
+require.config({
+  paths: {
+    ace: "lib/ace",
+    jquery: 'lib/jquery/jquery'
+  }
+});
 
-  // From underscore.js
-  debounce = function(func, wait, immediate) {
-    var timeout, result;
-    return function() {
-      var context = this, args = arguments;
-      var later = function() {
-        timeout = null;
-        if (!immediate) result = func.apply(context, args);
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) result = func.apply(context, args);
-      return result;
-    };
+requirejs(['ace/ace', 'ace/mode/html', 'ace/theme/clouds', 'jquery', 'helpers/debounce'], function(ace, html, clouds, $, debounce) {
+
+  // Ace objects
+  var Editor = require('ace/editor').Editor,
+    VirtualRenderer = require('ace/virtual_renderer').VirtualRenderer,
+    Document = require('ace/document').Document,
+    EditSession = require('ace/edit_session').EditSession,
+    HtmlMode = html.Mode;
+
+  // Editor initilization
+  var content = '<html>\n    <head>\n        <title>Sarbotte Quality Test</title>\n        <script>\n            console.log("page init");\n        </script>\n    </head>\n    <body>\n        Sarbotte Quality Test\n    </body>\n</html>',
+    aceDocument = new Document(content),
+    htmlMode = new HtmlMode(),
+    editSession = new EditSession(aceDocument, htmlMode),
+    virtualRenderer = new VirtualRenderer(document.getElementById('editor'), clouds),
+    editor = new Editor(virtualRenderer, editSession);
+
+  // Set editor settings
+  editor.setShowPrintMargin(false);
+  editor.renderer.setHScrollBarAlwaysVisible(false);
+  editor.renderer.setShowGutter(false);
+  editor.setHighlightActiveLine(false);
+  editor.getSession().on("change", debounce(function(){
+      $.ajax({
+        url: "/sqt",
+        method: 'post',
+        data: {sarbotte: editor.getValue()}
+      }).done(function(data){
+        updateSqiDisplay(data.sqr);
+      });
+  }, 1000));
+
+   // Update sqi display
+  var updateSqiDisplay = function(sqr){
+    $('#total').html(sqr.totalLength);
+    $('#jsAndCss').html(sqr.jsAndCssLength);
+    $('#sqi').html(Math.round(sqr.sqi*100)/100);
   };
 
-  require.config({
-    paths: {
-        ace: "lib/ace",
-        jquery: 'lib/jquery/jquery'
-    }
+  // Initialize sqi initial values
+  $(function(){
+    updateSqiDisplay({
+      totalLength: 208,
+      jsAndCssLength: 47,
+      sqi: 77.40
+    });
   });
 
-  requirejs(['ace/ace', 'jquery'], function(ace, $) {
-
-    require("ace/edit_session").EditSession.prototype.$startWorker = function(){};
-    var editor = ace.edit("editor");
-    editor.setShowPrintMargin(false);
-    editor.renderer.setHScrollBarAlwaysVisible(false);
-    editor.renderer.setShowGutter(false);
-    editor.setHighlightActiveLine(false);
-    editor.setTheme("ace/theme/clouds");
-    editor.getSession().setMode("ace/mode/html");
-    editor.renderer.setPadding(20);
-    editor.setValue('<html>\n    <head>\n        <title>Sarbotte Quality Test</title>\n        <script>\n            console.log("page init");\n        </script>\n    </head>\n    <body>\n        Sarbotte Quality Test\n    </body>\n</html>');
-    $('#total').html('208');
-    $('#jsAndCss').html('47');
-    $('#sqi').html('77.4');
-    editor.focus();
-    editor.selection.clearSelection()
-    editor.getSession().on("change", debounce(function(){
-        $.ajax({
-          url: "/sqt",
-          method: 'post',
-          data: {sarbotte: editor.getValue()}
-        }).done(function(data){
-          $('#total').html(data.sqr.totalLength);
-          $('#jsAndCss').html(data.sqr.jsAndCssLength);
-          $('#sqi').html(Math.round(data.sqr.sqi*100)/100);
-        });
-    }, 1000));
-
-  });
-
-})();
+});

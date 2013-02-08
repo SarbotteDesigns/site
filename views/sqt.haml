@@ -29,8 +29,12 @@
             %b Sarbotte Quality Index :
             %span#sqi
 
-    %script{:src=>"scripts/lib/jquery/jquery.js"}
-    %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js"}
+    -# Config de dev
+      %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js"}
 
-    %script
+    -# Config de prod
+    %script{:'data-main'=>"scripts/sqt.min.js", :src=>"scripts/require.min.js"}
+
+    -# Config de superprod avec almond (ne fonctionne pas)
+      %script{:src=>"scripts/sqt.min.js"}
 
