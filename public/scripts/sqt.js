@@ -44,7 +44,7 @@ requirejs(['sarbotte_editor', 'jquery', 'helpers/debounce'], function(SarbotteEd
     40: {color: "#F22E2E", message: "Really?"},
     50: {color: "#F25F2E", message: "Go back to work..."},
     60: {color: "#F29B30", message: "Quality ain't no game."},
-    70: {color: "#F2B33D", message: "Quality ain't no game."},
+    70: {color: "#F2B33D", message: "Try harder."},
     80: {color: "#B1BF6E", message: "Getting close."},
     90: {color: "#718F2F", message: "Good to go!"},
     100: {color: "#2A8F2F", message: "Sarbotte approved."}
