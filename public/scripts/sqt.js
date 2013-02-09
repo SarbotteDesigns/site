@@ -32,11 +32,30 @@ requirejs(['sarbotte_editor', 'jquery', 'helpers/debounce'], function(SarbotteEd
 
   // Initialize sqi initial values
   $(function(){
+
     updateSqiDisplay({
       totalLength: 208,
       jsAndCssLength: 47,
       sqi: 77.40
     });
+
+    $(window).on('resize', function() {
+      var h;
+      h = $(window).height() - 330;
+      if (h < 500) {
+        h = 500;
+      }
+      $("#editors").css({
+        height: h
+      });
+      editor.resize();
+    });
+
+    $(window).trigger('resize');
+
   });
+
+
+
 
 });
