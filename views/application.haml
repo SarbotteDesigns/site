@@ -1,10 +1,10 @@
 %div.containerS.cf
-  %hgroup
-    %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%; z-index: 100;"}
+  %hgroup.page
+    %h1
       %a{:href=>'/'} Sarbotte designs
-    %h2{:style=>'position: fixed; width: 100%; z-index: 100; padding: 5 0;'}
+    %h2
       Application
-  %div{:id=>'application', :style=>'text-align: center; width: 600px; padding-top: 16em; margin: auto;'}
+  %div{:id=>'application'}
 
     %form{:action=>'/application', :method=>'post', :class=>'form-horizontal', :style=>'text-align: initial;'}
 
@@ -21,7 +21,7 @@
 
         = question('Veuillez décrire de façon succinte et détaillée votre expérience du Sarbottisme')
         = bsInput('textarea', '', 'experienceSarbottisme', 'Réponse', 'Réponse')
-        
+
         = question('Comment avez-vous connu Sarbotte Designs ?')
         = bsInput('textarea', '', 'connuSarbotteDesigns', 'Réponse', 'Réponse')
 
@@ -36,7 +36,7 @@
             %code typeof NaN
             %i ?
         = bsInput('textarea', '', 'testJs', 'Réponse', 'Réponse')
-        
+
         - # js
         %p
           %strong
@@ -49,5 +49,5 @@
         - # piliers Sarbottisme
         = question('Quels sont les cinq pilliers du Sarbottisme ')
         = bsInput('textarea', '', 'pilliersSarbottisme', 'Réponse', 'Réponse')
-        
+
         %button{:type=>'submit', :class=>'btn'} Valider

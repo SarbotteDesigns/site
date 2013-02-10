@@ -28,12 +28,13 @@ h3.sqt{
 
 .left{
   float: left;
-  width: 59%;
+  width: 58%;
+  height: 100%;
 }
 
 .right{
   float: right;
-  width: 39%;
+  width: 38%;
 }
 
 #sqi{
@@ -43,18 +44,18 @@ h3.sqt{
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border: 1px solid #DEDEDE;
-  padding: 20px;
+  padding: 0.6em;
   width: 100%;
   background-color: white;
 }
 
 #sqi .sqi{
-  padding-right: 30px;
+  padding-right: 1em;
   border-right: solid 1px #DEDEDE;
 }
 
 #sqi .comment{
-  margin-left: 18px;
+  margin-left: 0.5em;
   font-family: 'Annie Use Your Telescope';
 }
 

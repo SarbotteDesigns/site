@@ -1,19 +1,12 @@
-%html
-  %head
-    %title Sarbotte designs
-    %link{:href => "http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic", :rel=>'stylesheet', :type=>'text/css'}
-    %link{:href => "/css/goldilocks/css/example/global.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/goldilocks/css/example/layout.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/bootstrap.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-  %body
-    %div.containerS.cf
-      %hgroup
-        %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%; z-index: 100;"}
-          %a{:href=>'/'} Sarbotte designs
-        %h2{:style=>'position: fixed; width: 100%; z-index: 100; padding: 5 0;'}
-          Applications
-      %div{:id=>'application', :style=>'width: 600px; padding-top: 10em; margin: auto;'}
-        %h2 Postulants
-        - applicationList.each do |application|
-          %div
-            %a{:href=>"/application/#{application}"} #{application}
+%div.containerS.cf
+  %hgroup.page
+    %h1
+      %a{:href=>'/'} Sarbotte designs
+    %h2
+      Applications
+  %div{:id=>'application'}
+%div{:id=>'application', :style=>'width: 600px; padding-top: 10em; margin: auto;'}
+  %h2 Postulants
+  - applicationList.each do |application|
+    %div
+      %a{:href=>"/application/#{application}"} #{application}

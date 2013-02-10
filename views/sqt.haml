@@ -1,20 +1,19 @@
 %a{:href=>"https://github.com/SarbotteDesigns/sqt"}
   %img{:style=>"position: fixed; top: 0; right: 0; border: 0; z-index: 200;", :src=>"https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png", :alt=>"Fork me on GitHub"}
 %link{:href => "/css/sqt.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-
-%link{:href => "http://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic", :rel=>'stylesheet', :type=>'text/css'}
+%link{:href => "http://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope", :rel=>'stylesheet', :type=>'text/css'}
 %div.containerS.cf
-  %hgroup
-    %h1{:style=>"margin-top: 0.3em; position: fixed; width: 100%; z-index: 100;"}
+  %hgroup.page
+    %h1
       %a{:href=>'/'} Sarbotte designs
-    %h2{:style=>'position: fixed; width: 100%; z-index: 100; padding: 5 0;'}
+    %h2
       Sarbotte Quality Tool
-  %div{:id=>'application', :style=>'text-align: center; width: 80%; padding-top: 16em; margin: auto;'}
+  %div{:id=>'application'}
 
     %div#editors
       %div.left
         %h3.sqt Your code
-        %pre#editor.editor
+        %div#editor.editor
 
       %div#result.right
         %h3.sqt Your results
@@ -34,10 +33,10 @@
               %span.comment
 
     -# Config de dev
-      %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js"}
+      %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js", :type => "text/javascript"}
 
     -# Config de prod
-    %script{:'data-main'=>"scripts/sqt.min.js", :src=>"scripts/require.min.js"}
+    %script{:'data-main'=>"scripts/sqt.min.js", :src=>"scripts/require.min.js", :type => "text/javascript"}
 
     -# Config de superprod avec almond (ne fonctionne pas)
-      %script{:src=>"scripts/sqt.min.js"}
+      %script{:src=>"scripts/sqt.min.js", :type => "text/javascript"}
