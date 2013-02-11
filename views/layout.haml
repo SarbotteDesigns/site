@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Sarbotte designs
+    %title= locals[:title] || 'Sarbotte designs'
     %link{:href => "/css/sarbotte.min.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
     :javascript
       var _gaq = _gaq || [];

@@ -38,7 +38,7 @@ get '/application/:nom/?' do |nom|
 end
 
 get '/sqt/?' do
-  haml :sqt
+  haml :sqt, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
 end
 
 post '/sqt/?' do
