@@ -21,7 +21,7 @@ get '/applications/?' do
   Dir["public/applications/*.md"].each do |application|
     applicationList << application[/public\/applications\/(.*)\.md/, 1]
   end
-  haml :listApplications, :locals=>{:applicationList => applicationList}
+  haml :applications, :locals=>{:applicationList => applicationList}
 end
 
 post '/application/?' do

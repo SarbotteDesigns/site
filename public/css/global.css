@@ -22,7 +22,7 @@ CONTENTS - LAYOUT.CSS
 9. CUSTOM LAYOUT & TYPOGRAPHY (Mummy bear)
 
 */
-
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700|Annie+Use+Your+Telescope);
 
 /* 1. RESET
 ----------------------------------------------------------------------------------------*/
@@ -122,3 +122,65 @@ aside { width: 100%; }
 .cf:before, .cf:after { content: ""; display: block; }
 .cf:after { clear: both; }
 .ie6 .cf { zoom: 1 }
+
+/*@import url("../global.css");*/
+
+
+/*
+This file contains the unique styles needed for example.html which do not appear in /css/global.css
+----------------------------------------------------------------------------------------
+*/
+
+html {
+  background: rgb(244, 244, 244);
+}
+
+/* 5. GLOBAL LAYOUT & GLOBAL CUSTOM TYPOGRAPHY
+----------------------------------------------------------------------------------------*/
+h1 {
+  font-family: Lato;
+  text-align: center;
+  font-size: 2.618em;
+  line-height: 1.2em;
+  background-color: #5a9eac;
+  color: white;
+}
+
+h1 a{
+  font-family: Lato;
+  text-align: center;
+  background-color: #5a9eac;
+  color: white;
+}
+
+h1 a:visited{
+  color: white;
+}
+
+h1 a:hover{
+  text-decoration: none;
+}
+
+h2 {
+  font-family: Lato;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+hgroup h2{
+  -webkit-box-shadow: 0px 1px 2px 1px #DDD;
+  box-shadow: 0px 1px 2px 1px #DDD;
+  background-color: white;
+  text-align: center;
+}
+
+#application h2{
+  margin-top: 0.8em;
+}
+
+h3 { letter-spacing:0.12em;  text-align: center; text-transform: uppercase;}
+
+h3, h4, h5, h6 { font-weight: bold; }
+
+/* 6. CUSTOM LAYOUT & TYPOGRAPHY (Baby bear)
+----------------------------------------------------------------------------------------*/
