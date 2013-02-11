@@ -4,7 +4,15 @@
       Sarbotte designs
     %h3
       Your ideas, Sarbotte designs
-    %div.email{:style=>"text-align: center; margin-top: 150px;"}
-    - #  Sarbotte Designs recruit. Submit your application
-    - #  = succeed '.' do
-    - #    %a{:href=>"/application", :style=>"text-decoration: none;"} here
+    %ul.home_menu.inline_list
+      %li
+        %a{:href=>'/sqt'} Sarbotte Quality Tool
+      %li
+        %a{:href=>'#'} Secret project
+      %li
+        %a{:href=>'/#'} About us
+    -# %div.email{:style=>"text-align: center; margin-top: 150px;"}
+    -#
+      Sarbotte Designs recruit. Submit your application
+      = succeed '.' do
+        %a{:href=>"/application", :style=>"text-decoration: none;"} here

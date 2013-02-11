@@ -8,6 +8,13 @@ hgroup.home h1 { margin-tom: 4em; }
 hgroup h2 { margin-top: 4em; position: fixed; width: 100%; z-index: 100; padding: 5 0;}
 #application{ padding-top: 16em; text-align: center; width: 85%; margin: auto;}
 
+.home_menu{ text-align: center; width: 50%; margin: auto; margin-top: 10em; font-size: 1.3em; }
+
+.home_menu li + li:before{ content: " - "; padding: 0 10px; color: #555; }
+.home_menu a{ color: #555; }
+.inline_list ul{ margin: 0; padding: 0; list-style-type: none; }
+.inline_list li{ display: inline; }
+
 /* 9. CUSTOM LAYOUT & TYPOGRAPHY (Mummy bear)
 ----------------------------------------------------------------------------------------*/
 @media screen and (min-width: 30em) and (max-width: 63.236em) {
