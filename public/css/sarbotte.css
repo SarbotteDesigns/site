@@ -6258,19 +6258,26 @@ h3.sqt {
   background-color: #EEE;
 }
 
-.about table {
+#application.about {
+  text-align: left;
+}
+#application.about table {
   font-size: 1.2em;
   padding: 1em;
 }
-.about table thead {
+#application.about table thead {
   color: #444;
 }
-.about table td {
+#application.about table td {
   width: 50%;
 }
-.about h3 {
+#application.about h3 {
   font-size: 1.2em;
   margin-bottom: 1em;
   color: #5a9eac;
   text-align: left;
+}
+#application.about .contact {
+  padding-left: 10px;
+  font-size: 1.2em;
 }
