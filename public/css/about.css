@@ -1,0 +1,16 @@
+.about table {
+  font-size: 1.2em;
+  padding: 1em;
+}
+.about table thead {
+  color: #444;
+}
+.about table td {
+  width: 50%;
+}
+.about h3 {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  color: #5a9eac;
+  text-align: left;
+}

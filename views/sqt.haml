@@ -6,7 +6,10 @@
       %a{:href=>'/'} Sarbotte designs
     %h2
       Sarbotte Quality Tool
-  %div{:id=>'application'}
+      -# %span.was
+        ?
+
+  %div#application
 
     %div#editors
       %div.left
@@ -29,6 +32,9 @@
             %div#sqi
               %span.sqi
               %span.comment
+
+
+    %script{:src=>"//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", :type => "text/javascript"}
 
     -# Config de dev
       %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js", :type => "text/javascript"}

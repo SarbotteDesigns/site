@@ -18,13 +18,19 @@ module.exports = function(grunt) {
           out: 'public/scripts/sqt.min.js',
           wrap: true,
           preserveLicenseComments: false,
-          optimizeAllPluginResources: true
+          optimizeAllPluginResources: true,
+          paths: {
+            jquery: 'empty:'
+          }
         }
       }
     },
     less:{
-      files: {
-        "public/css/sqt.css": "public/css/sqt.less"
+      production:{
+        files: {
+          "public/css/sqt.css": "public/css/sqt.less",
+          "public/css/about.css": "public/css/about.less"
+        }
       }
     },
     concat:{
@@ -33,7 +39,8 @@ module.exports = function(grunt) {
           'public/css/global.css',
           'public/css/layout.css',
           'public/css/bootstrap.css',
-          'public/css/sqt.css'
+          'public/css/sqt.css',
+          'public/css/about.css'
         ],
         dest: 'public/css/sarbotte.css'
       }

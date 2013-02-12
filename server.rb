@@ -16,6 +16,10 @@ get '/application/?' do
   haml :application
 end
 
+get '/about/?' do
+  haml :about, :locals=>{:title => 'Sarbotte Designs - About us'}
+end
+
 get '/applications/?' do
   applicationList = []
   Dir["public/applications/*.md"].each do |application|

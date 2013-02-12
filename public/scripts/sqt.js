@@ -2,7 +2,7 @@
 require.config({
   paths: {
     ace: "lib/ace",
-    jquery: 'lib/jquery/jquery'
+    jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min'
   }
 });
 
@@ -72,9 +72,9 @@ requirejs(
     $(function(){
 
       updateSqiDisplay({
-        totalLength: 750,
+        totalLength: 779,
         jsAndCssLength: 124,
-        sqi: 83.47
+        sqi: 84.08
       });
 
       $(window).on('resize', function() {

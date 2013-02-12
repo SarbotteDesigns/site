@@ -52,3 +52,18 @@ h3.sqt {
   padding-right: 1em;
   border-right: solid 1px #DEDEDE;
 }
+.was {
+  float: right;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 1px solid #DEDEDE;
+  padding: 0px 6px;
+  margin-right: 40px;
+  font-size: 0.8em;
+}
+.was:hover {
+  cursor: pointer;
+  color: #5a9eac;
+  background-color: #EEE;
+}
