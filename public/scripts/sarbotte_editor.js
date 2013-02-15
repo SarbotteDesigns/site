@@ -4,9 +4,9 @@ define(
 
   ['ace/editor', 'ace/virtual_renderer', 'ace/document', 'ace/edit_session', 'ace/undomanager', 'ace/mode/html', 'ace/theme/clouds'],
 
-  function(aceEditor, aceVirtualRenderer, aceDocument, aceEditSession, aceUndoManager, aceHtml, aceClouds){
+  function (aceEditor, aceVirtualRenderer, aceDocument, aceEditSession, aceUndoManager, aceHtml, aceClouds) {
 
-    function SarbotteEditor(id, content){
+    function SarbotteEditor(id, content) {
 
       // Ace objects
       var Editor = aceEditor.Editor,

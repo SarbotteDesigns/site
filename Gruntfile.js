@@ -1,17 +1,42 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      files: ['Gruntfile.js', 'public/scripts/sqt.js', 'public/scripts/test/**/*.js'],
+      files: [
+        'Gruntfile.js',
+        'public/scripts/sqt.js',
+        'public/scripts/sarbotte_editor.js',
+        'public/scripts/require_ga.js',
+        'public/scripts/test/**/*.js'
+      ],
       options: {
-        browser: true
+        browser: true,
+        camelcase: true,
+        curly: true,
+        eqeqeq: true,
+        forin: true,
+        immed: true,
+        indent: 2,
+        latedef: true,
+        newcap: true,
+        noarg: true,
+        noempty: true,
+        quotmark: 'single',
+        undef: true,
+        unused: true,
+        trailing: true,
+        predef: [
+          'requirejs', 'require', 'define',
+          'module',
+          '_gaq'
+        ]
       }
     },
     requirejs: {
       production: {
-        options:{
+        options: {
           name: 'sqt',
           mainConfigFile: 'public/scripts/sqt.js',
           optimize: 'uglify2',
@@ -25,15 +50,15 @@ module.exports = function(grunt) {
         }
       }
     },
-    less:{
-      production:{
+    less: {
+      production: {
         files: {
-          "public/css/sqt.css": "public/css/sqt.less",
-          "public/css/about.css": "public/css/about.less"
+          'public/css/sqt.css': 'public/css/sqt.less',
+          'public/css/about.css': 'public/css/about.less'
         }
       }
     },
-    concat:{
+    concat: {
       production: {
         src: [
           'public/css/global.css',
