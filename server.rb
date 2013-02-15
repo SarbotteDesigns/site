@@ -1,12 +1,17 @@
 # encoding: utf-8
 
 require 'sinatra'
+require 'newrelic_rpm'
 require 'haml'
 require 'kramdown'
 require 'sqt'
 require 'json'
 
 require './sarbotteForm'
+
+before do
+  content_type :html, 'charset' => 'utf-8'
+end
 
 get '/' do
   haml :index
