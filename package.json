@@ -13,8 +13,5 @@
   "engines": {
     "node": "0.8.x",
     "npm":  "1.1.x"
-  },
-  "scripts": {
-    "preinstall": "npm install -g grunt-cli@0.1.6"
   }
 }
