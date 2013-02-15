@@ -62,6 +62,6 @@ module.exports = function(grunt) {
 
   // Task definition.
   grunt.registerTask('default', ['jshint', 'less', 'concat', 'cssmin']);
-  grunt.registerTask('production', ['jshint', 'less', 'concat', 'cssmin', 'requirejs']);
+  grunt.registerTask('heroku', ['jshint', 'less', 'concat', 'cssmin', 'requirejs']);
 
 };
