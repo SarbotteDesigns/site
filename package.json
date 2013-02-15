@@ -15,6 +15,6 @@
     "npm":  "1.1.x"
   },
   "scripts": {
-    "start": "npm install -g grunt-cli@0.1.6",
+    "preinstall": "npm install -g grunt-cli@0.1.6"
   }
 }
