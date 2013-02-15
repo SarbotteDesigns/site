@@ -2,15 +2,16 @@
 require.config({
   paths: {
     ace: "lib/ace",
-    jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min'
+    jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min',
+    ga: 'http://www.google-analytics.com/ga.js'
   }
 });
 
 requirejs(
 
-  ['sarbotte_editor', 'jquery', 'helpers/debounce', 'text!sqt.html'],
+  ['require_ga', 'sarbotte_editor', 'jquery', 'helpers/debounce', 'text!sqt.html'],
 
-  function(SarbotteEditor, $, debounce, exampleContent) {
+  function(ga, SarbotteEditor, $, debounce, exampleContent) {
 
     //var content = '<html>\n    <head>\n        <title>Sarbotte Quality Test</title>\n        <script>\n            console.log("page init");\n        </script>\n    </head>\n    <body>\n        Sarbotte Quality Test\n    </body>\n</html>',
      var content = exampleContent,
