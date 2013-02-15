@@ -27,6 +27,7 @@ requirejs(
           method: 'post',
           data: {sarbotte: text}
         }).done(function(data){
+          _gaq.push(['_trackEvent', 'SQT', 'Result', data.sqr.sqi]);
           updateSqiDisplay(data.sqr);
         });
       }else{
