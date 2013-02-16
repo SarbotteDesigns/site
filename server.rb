@@ -52,7 +52,9 @@ end
 
 post '/sqt/?' do
   content_type :json
-  { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
+  if params[:curly] then {:sqr => SQT.sarbotteCurl(params[:curly], 0) }.to_json
+  else { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
+  end
 end
 
 get '/ping' do

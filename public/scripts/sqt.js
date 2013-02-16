@@ -86,6 +86,23 @@ requirejs(
 
       $(window).trigger('resize');
 
+      $('#curly').on('keypress', debounce(function () {
+        if ($(this).val()) {
+          $.ajax({
+            url: '/sqt',
+            method: 'post',
+            data: {curly: $(this).val()}
+          }).done(function (data) {
+            //_gaq.push(['_trackEvent', 'SQT', 'Result', data.sqr.sqi]);
+            updateSqiDisplay(data.sqr);
+          });
+        } else {
+          $('#total, #jsAndCss, #sqi .sqi').html('n/a');
+          $('#sqi .comment').html('');
+          $('#sqi .sqi').css('color', '#DEDEDE');
+        }
+      }, 1000));
+
     });
 
   }
