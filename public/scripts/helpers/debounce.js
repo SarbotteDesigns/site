@@ -1,20 +1,23 @@
 /**
   Module debounce : voir doc underscore.js
 */
-define(function(){
-  // From underscore.js
-  return function(func, wait, immediate) {
+define(function () {
+  return function (func, wait, immediate) {
     var timeout, result;
-    return function() {
+    return function () {
       var context = this, args = arguments;
-      var later = function() {
+      var later = function () {
         timeout = null;
-        if (!immediate) result = func.apply(context, args);
+        if (!immediate) {
+          result = func.apply(context, args);
+        }
       };
       var callNow = immediate && !timeout;
       clearTimeout(timeout);
       timeout = setTimeout(later, wait);
-      if (callNow) result = func.apply(context, args);
+      if (callNow) {
+        result = func.apply(context, args);
+      }
       return result;
     };
   };

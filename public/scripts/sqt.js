@@ -9,14 +9,22 @@ require.config({
 
 requirejs(
 
-  ['require_ga', 'sarbotte_editor', 'jquery', 'helpers/debounce', 'text!sqt.html'],
+  ['require_ga', 'sarbotte_editor', 'jquery', 'helpers/debounce', 'helpers/each', 'text!sqt.html'],
 
-  function (ga, SarbotteEditor, $, debounce, exampleContent) {
+  function (ga, SarbotteEditor, $, debounce, each, exampleContent) {
 
     var content = exampleContent,
       id = 'editor',
       sarbotteEditor = new SarbotteEditor(id, content),
       editor = sarbotteEditor.editor;
+
+    var resetResultDisplay = function () {
+      $('#total, #jsAndCss, #sqi .sqi').html('n/a');
+      $('#sqi .comment').html('');
+      $('#sqi .sqi').css('color', '#DEDEDE');
+      $('.result-tr').remove();
+      $('.result-header').css('display', 'none');
+    };
 
     editor.getSession().on('change', debounce(function () {
       var text = editor.getValue();
@@ -28,11 +36,11 @@ requirejs(
         }).done(function (data) {
           _gaq.push(['_trackEvent', 'SQT', 'Result', data.sqr.sqi]);
           updateSqiDisplay(data.sqr);
+        }).fail(function () {
+          resetResultDisplay();
         });
       } else {
-        $('#total, #jsAndCss, #sqi .sqi').html('n/a');
-        $('#sqi .comment').html('');
-        $('#sqi .sqi').css('color', '#DEDEDE');
+        resetResultDisplay();
       }
     }, 1000));
 
@@ -69,6 +77,16 @@ requirejs(
       $('#sqi .comment').html(sqiDisplaySetting.message);
     };
 
+     // Update sqi display
+    var updateSqiDetailsDisplay = function (result) {
+      var details = $('#result .details table');
+      $('.result-header').css('display', 'block');
+      $('.result-tr').remove();
+      each(result, function (el) {
+        details.append('<tr class="result-tr"><td><pre>' + el.uri + '</pre></td><td class="sqi">' + el.sqi + '</td></tr>');
+      });
+    };
+
     // Initialize sqi initial values
     $(function () {
 
@@ -86,22 +104,48 @@ requirejs(
 
       $(window).trigger('resize');
 
-      $('#curly').on('keypress', debounce(function () {
-        if ($(this).val()) {
+      $('#sqsite').on('submit', function () {
+
+        var self = this;
+        
+        if ($('input[name="url"]', self).val()) {
+          $('button', self).html('Pending...').attr('disabled', 'disabled');
           $.ajax({
             url: '/sqt',
             method: 'post',
-            data: {curly: $(this).val()}
+            data: {
+              curly: $('input[name="url"]', self).val(),
+              depth: $('input[name="depth"]', self).val()
+            }
           }).done(function (data) {
-            //_gaq.push(['_trackEvent', 'SQT', 'Result', data.sqr.sqi]);
-            updateSqiDisplay(data.sqr);
+            _gaq.push(['_trackEvent', 'SQT - Site', 'Result', data.sqr.average.sqi]);
+            updateSqiDisplay(data.sqr.average);
+            updateSqiDetailsDisplay(data.sqr.result);
+            $('button', self).html('Ok').removeAttr('disabled');
+          }).fail(function ()     {
+            resetResultDisplay();
           });
         } else {
           $('#total, #jsAndCss, #sqi .sqi').html('n/a');
           $('#sqi .comment').html('');
           $('#sqi .sqi').css('color', '#DEDEDE');
         }
-      }, 1000));
+
+        return false;
+
+      });
+
+      $('.openSite').on('click', function () {
+        $('#editor').css('display', 'none');
+        $('#site').css('display', 'block');
+        resetResultDisplay();
+      });
+
+      $('.openCode').on('click', function () {
+        $('#editor').css('display', 'block');
+        $('#site').css('display', 'none');
+        resetResultDisplay();
+      });
 
     });
 

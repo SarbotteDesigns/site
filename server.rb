@@ -52,7 +52,23 @@ end
 
 post '/sqt/?' do
   content_type :json
-  if params[:curly] then {:sqr => SQT.sarbotteCurl(params[:curly], 0) }.to_json
+  if params[:curly]
+    result = SQT.sarbotteCurl(params[:curly], params[:depth] || 0)
+    #  result = [
+    #    {:sqi=>100, :totalLength=>10000, :jsAndCssLength=>0, :uri=>'http://www.google.com'},
+    #    {:sqi=>100, :totalLength=>5000, :jsAndCssLength=>0, :uri=>'http://www.google.com/unpeulong'},
+    #    {:sqi=>0, :totalLength=>10000, :jsAndCssLength=>10000, :uri=>'http://www.google.com/beaucoupbueaoucbeaucoubeaucoubeacuououfdifudofiudfpluslong'}
+    #  ]
+    result.sort_by! { |a| a[:sqi] }
+    sums = result.reduce({:sqi=>0, :totalLength=>0, :jsAndCssLength=>0}) do |total, fP| 
+      total[:sqi] += fP[:sqi]
+      total[:totalLength] += fP[:totalLength]
+      total[:jsAndCssLength] += fP[:jsAndCssLength]
+      total
+    end
+    average = {:sqi=>sums[:sqi]/result.size, :totalLength=>sums[:totalLength]/result.size, :jsAndCssLength=>sums[:jsAndCssLength]/result.size}
+
+    {:sqr=>{ :average=>average, :result=>result}  }.to_json
   else { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
   end
 end

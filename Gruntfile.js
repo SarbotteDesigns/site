@@ -8,6 +8,7 @@ module.exports = function (grunt) {
         'Gruntfile.js',
         'public/scripts/sqt.js',
         'public/scripts/sarbotte_editor.js',
+        'public/scripts/helpers/**/*.js',
         'public/scripts/require_ga.js',
         'public/scripts/test/**/*.js'
       ],
@@ -30,7 +31,8 @@ module.exports = function (grunt) {
         predef: [
           'requirejs', 'require', 'define',
           'module',
-          '_gaq'
+          '_gaq',
+          'console'
         ]
       }
     },

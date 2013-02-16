@@ -16,6 +16,25 @@
     float: right;
     width: 38%;
   }
+  #site{
+    display: none;
+    form{
+      margin-top: 20px;
+      label{
+        width: 100px;
+      }
+      .controls, button{
+        margin-left: 120px;
+        input[type=text]{
+          height: 22px;
+        }
+      }
+    }
+    
+  }
+  .openCode, .openSite{
+    cursor: pointer;
+  }
 }
 
 .editor {
@@ -33,6 +52,33 @@ h3.sqt {
 .results {
   padding-top: 20px;
   font-size: 1.2em;
+}
+
+.details{
+  .result-header{
+    display: none;
+  }
+  table td {
+    word-wrap: break-word;
+    white-space: normal;
+    &.itemsqi{
+      width: 10px;
+    }
+    pre {
+      display: block;
+      padding: 0px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0px;
+      font-size: 100%;  
+      line-height: 20px;
+      word-break: break-all;
+      word-wrap: break-word;
+      white-space: pre;
+      white-space: pre-wrap;
+      background-color: transparent;
+      border: none;
+    }
+  }
 }
 
 #sqi_parent {

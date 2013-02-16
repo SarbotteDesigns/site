@@ -13,9 +13,17 @@
 
     %div#editors
       %div.left
-        %h3.sqt Your code
-        %input#curly{:type=>'input', :style=>'display: none;'}
+        %h3.sqt 
+          %span.openCode Test some code
+          \/
+          %span.openSite Test a website
         %div#editor.editor
+        %div#site
+          %form.form-horizontal#sqsite
+            = bsInput('input', 'text', 'url', 'Url', 'Url')
+            = bsInput('input', 'text', 'depth', 'Depth', 'Depth')
+            %button.btn{:type=>'submit'} Ok
+            -# %input#curly{:type=>'input'}
 
       %div#result.right
         %h3.sqt Your results
@@ -33,15 +41,21 @@
             %div#sqi
               %span.sqi
               %span.comment
+        %div.details
+          %table.table
+            %thead
+              %tr.result-header
+                %th Url
+                %th sqi
 
 
     %script{:src=>"//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", :type => "text/javascript"}
 
     -# Config de dev
-    %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js", :type => "text/javascript"}
+      %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js", :type => "text/javascript"}
 
     -# Config de prod
-      %script{:'data-main'=>"scripts/sqt.min.js", :src=>"scripts/require.min.js", :type => "text/javascript"}
+    %script{:'data-main'=>"scripts/sqt.min.js", :src=>"scripts/require.min.js", :type => "text/javascript"}
 
     -# Config de superprod avec almond (ne fonctionne pas)
       %script{:src=>"scripts/sqt.min.js", :type => "text/javascript"}
