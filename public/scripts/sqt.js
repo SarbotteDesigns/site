@@ -124,6 +124,7 @@ requirejs(
             $('button', self).html('Ok').removeAttr('disabled');
           }).fail(function ()     {
             resetResultDisplay();
+            $('button', self).html('Ok').removeAttr('disabled');
           });
         } else {
           $('#total, #jsAndCss, #sqi .sqi').html('n/a');
