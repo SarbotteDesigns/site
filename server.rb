@@ -53,7 +53,7 @@ end
 post '/sqt/?' do
   content_type :json
   if params[:curly]
-    result = SQT.sarbotteCurl(params[:curly], params[:depth] || 0)
+    result = SQT.sarbotteCurl(params[:curly], params[:depth].to_i || 0)
     #  result = [
     #    {:sqi=>100, :totalLength=>10000, :jsAndCssLength=>0, :uri=>'http://www.google.com'},
     #    {:sqi=>100, :totalLength=>5000, :jsAndCssLength=>0, :uri=>'http://www.google.com/unpeulong'},
