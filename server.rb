@@ -55,6 +55,10 @@ post '/sqt/?' do
   { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
 end
 
+get '/ping' do
+  'ok'
+end
+
 not_found do
   'Page non trouvée.'
 end
