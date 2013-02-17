@@ -83,7 +83,7 @@ requirejs(
       $('.result-header').css('display', 'table-row');
       $('.result-tr').remove();
       each(result, function (el) {
-        details.append('<tr class="result-tr"><td><pre>' + el.uri + '</pre></td><td class="sqi">' + el.sqi + '</td></tr>');
+        details.append('<tr class="result-tr"><td><pre>' + el.uri + '</pre></td><td class="sqi">' + el.sqi.toFixed(2) + '</td></tr>');
       });
     };
 
