@@ -80,7 +80,7 @@ requirejs(
      // Update sqi display
     var updateSqiDetailsDisplay = function (result) {
       var details = $('#result .details table');
-      $('.result-header').css('display', 'block');
+      $('.result-header').css('display', 'table-row');
       $('.result-tr').remove();
       each(result, function (el) {
         details.append('<tr class="result-tr"><td><pre>' + el.uri + '</pre></td><td class="sqi">' + el.sqi + '</td></tr>');
