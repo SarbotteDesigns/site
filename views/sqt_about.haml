@@ -1,0 +1,26 @@
+%div#jmpress
+  %div.step{:'data-template'=>"basic"}
+    %div.step
+      %hgroup
+        %h1 h1
+        %h2 h2
+    %div.step s2
+  %div.step{:'data-template'=>"mytemplate"}
+    %div.step
+      %h3 Lorep s3.1
+      Ipsum
+    %div.step
+      %h3 Lorep s3.2
+      Ipsum
+    %div.step
+      %h3 Lorep s3.3
+      Ipsum
+    %div.step
+      %h3 Lorep s3.4
+      Ipsum
+
+-# Config de dev
+%script{:'data-main'=>"/scripts/sqt_about.js", :src=>"/scripts/require.js", :type => "text/javascript"}
+
+-# Config de prod
+  %script{:'data-main'=>"/scripts/sqt.min.js", :src=>"/scripts/require.min.js", :type => "text/javascript"}

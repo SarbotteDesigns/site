@@ -60,7 +60,7 @@ post '/sqt/?' do
     #    {:sqi=>0, :totalLength=>10000, :jsAndCssLength=>10000, :uri=>'http://www.google.com/beaucoupbueaoucbeaucoubeaucoubeacuououfdifudofiudfpluslong'}
     #  ]
     result.sort_by! { |a| a[:sqi] }
-    sums = result.reduce({:sqi=>0, :totalLength=>0, :jsAndCssLength=>0}) do |total, fP| 
+    sums = result.reduce({:sqi=>0, :totalLength=>0, :jsAndCssLength=>0}) do |total, fP|
       total[:sqi] += fP[:sqi]
       total[:totalLength] += fP[:totalLength]
       total[:jsAndCssLength] += fP[:jsAndCssLength]
@@ -71,6 +71,10 @@ post '/sqt/?' do
     {:sqr=>{ :average=>average, :result=>result}  }.to_json
   else { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
   end
+end
+
+get '/sqt/about/?' do
+  haml :sqt_about, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
 end
 
 get '/ping' do

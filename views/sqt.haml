@@ -13,7 +13,7 @@
 
     %div#editors
       %div.left
-        %h3.sqt 
+        %h3.sqt
           %span.openCode Test some code
           \/
           %span.openSite Test a website
@@ -49,13 +49,13 @@
                 %th sqi
 
 
-    %script{:src=>"//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", :type => "text/javascript"}
+    -# %script{:src=>"//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", :type => "text/javascript"}
 
     -# Config de dev
-      %script{:'data-main'=>"scripts/sqt.js", :src=>"scripts/require.js", :type => "text/javascript"}
+      %script{:'data-main'=>"/scripts/sqt.js", :src=>"scripts/require.js", :type => "text/javascript"}
 
     -# Config de prod
-    %script{:'data-main'=>"scripts/sqt.min.js", :src=>"scripts/require.min.js", :type => "text/javascript"}
+    %script{:'data-main'=>"/scripts/sqt.min.js", :src=>"scripts/require.min.js", :type => "text/javascript"}
 
     -# Config de superprod avec almond (ne fonctionne pas)
-      %script{:src=>"scripts/sqt.min.js", :type => "text/javascript"}
+      %script{:src=>"/scripts/sqt.min.js", :type => "text/javascript"}
