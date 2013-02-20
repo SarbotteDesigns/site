@@ -1,5 +1,6 @@
 #Helpers haml pour le formulaire
 helpers do
+
   def bsInput(tag, type, name, label = '', placeholder = '', help = '')
     haml = <<-HAML
 %div{:class=>'control-group'}
@@ -13,6 +14,7 @@ HAML
     engine = Haml::Engine.new(haml)
     engine.render
   end
+
   def question(question)
     haml = <<-HAML
 %p
@@ -22,4 +24,5 @@ HAML
     engine = Haml::Engine.new(haml)
     engine.render
   end
+
 end

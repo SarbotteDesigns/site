@@ -7,7 +7,7 @@ require 'kramdown'
 require 'sqt'
 require 'json'
 
-require './sarbotteForm'
+require_relative 'lib/sarbotteForm'
 
 before do
   content_type :html, 'charset' => 'utf-8'
