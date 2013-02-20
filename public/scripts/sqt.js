@@ -3,15 +3,18 @@ require.config({
   paths: {
     ace: 'lib/ace',
     jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min',
-    ga: 'http://www.google-analytics.com/ga.js'
+    ga: 'http://www.google-analytics.com/ga.js',
+    require: 'lib/requirejs'
   }
 });
 
 requirejs(
 
-  ['require_ga', 'sarbotte_editor', 'jquery', 'helpers/debounce', 'helpers/each', 'text!sqt.html'],
+  ['require_ga', 'sarbotte_editor', 'jquery', 'helpers/debounce', 'helpers/each', 'require/text!sqt.html'],
 
   function (ga, SarbotteEditor, $, debounce, each, exampleContent) {
+
+    'use strict';
 
     var content = exampleContent,
       id = 'editor',
@@ -107,7 +110,7 @@ requirejs(
       $('#sqsite').on('submit', function () {
 
         var self = this;
-        
+
         if ($('input[name="url"]', self).val()) {
           $('button', self).html('Pending...').attr('disabled', 'disabled');
           $.ajax({

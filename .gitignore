@@ -1,5 +1,6 @@
 node_modules
 *.min.css
+public/script/*.min.js
 public/css/about.css
 public/css/sqt.css
 public/css/sarbotte.css

@@ -1,5 +1,7 @@
 define(function () {
 
+  'use strict';
+
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-38362238-1']);
   _gaq.push(['_setDomainName', 'sarbotte-designs.com']);

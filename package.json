@@ -12,9 +12,13 @@
   },
   "engines": {
     "node": "0.8.x",
-    "npm":  "1.1.x"
+    "npm": "1.1.x"
   },
   "scripts": {
     "test": "grunt travis --verbose"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt-contrib-uglify": "~0.1.1"
   }
 }

@@ -6,6 +6,8 @@ define(
 
   function (aceEditor, aceVirtualRenderer, aceDocument, aceEditSession, aceUndoManager, aceHtml, aceClouds) {
 
+    'use strict';
+
     function SarbotteEditor(id, content) {
 
       // Ace objects

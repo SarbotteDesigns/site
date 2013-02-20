@@ -3,10 +3,12 @@
 */
 define(function () {
 
+  'use strict';
+
   var ArrayProto = Array.prototype,
     nativeForEach = ArrayProto.forEach,
     breaker = {};
-  
+
   return function (obj, iterator, context) {
     if (obj === null) {
       return;

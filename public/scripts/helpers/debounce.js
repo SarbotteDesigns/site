@@ -2,6 +2,9 @@
   Module debounce : voir doc underscore.js
 */
 define(function () {
+
+  'use strict';
+
   return function (func, wait, immediate) {
     var timeout, result;
     return function () {

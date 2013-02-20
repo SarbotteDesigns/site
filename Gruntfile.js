@@ -1,16 +1,18 @@
 module.exports = function (grunt) {
 
+  'use strict';
+
   // Project configuration.
   grunt.initConfig({
+
     pkg: grunt.file.readJSON('package.json'),
+
     jshint: {
       files: [
         'Gruntfile.js',
-        'public/scripts/sqt.js',
-        'public/scripts/sarbotte_editor.js',
-        'public/scripts/helpers/**/*.js',
-        'public/scripts/require_ga.js',
-        'public/scripts/test/**/*.js'
+        'public/scripts/**/*.js',
+        '!public/scripts/lib/**/*.js',
+        '!public/scripts/*.min.js'
       ],
       options: {
         browser: true,
@@ -28,6 +30,7 @@ module.exports = function (grunt) {
         undef: true,
         unused: true,
         trailing: true,
+        strict: true,
         predef: [
           'requirejs', 'require', 'define',
           'module',
@@ -36,19 +39,40 @@ module.exports = function (grunt) {
         ]
       }
     },
-    requirejs: {
+    uglify: {
+      options: {
+        preserveLicenseComments: false,
+        mangle: true,
+        compress: true
+      },
       production: {
+        files: {
+          'public/scripts/lib/requirejs/require.min.js': 'public/scripts/lib/requirejs/require.js'
+        }
+      }
+    },
+    requirejs: {
+      options: {
+        wrap: true,
+        optimize: 'uglify2',
+        preserveLicenseComments: false,
+        optimizeAllPluginResources: true,
+        paths: {
+          jquery: 'empty:'
+        }
+      },
+      sqt: {
         options: {
           name: 'sqt',
           mainConfigFile: 'public/scripts/sqt.js',
-          optimize: 'uglify2',
-          out: 'public/scripts/sqt.min.js',
-          wrap: true,
-          preserveLicenseComments: false,
-          optimizeAllPluginResources: true,
-          paths: {
-            jquery: 'empty:'
-          }
+          out: 'public/scripts/sqt.min.js'
+        }
+      },
+      sqtAbout: {
+        options: {
+          name: 'sqt_about',
+          mainConfigFile: 'public/scripts/sqt_about.js',
+          out: 'public/scripts/sqt_about.min.js'
         }
       }
     },
@@ -59,6 +83,14 @@ module.exports = function (grunt) {
           'public/css/about.css': 'public/css/about.less'
         }
       }
+    },
+    csslint: {
+      src: [
+        //'public/css/global.css',
+        //'public/css/layout.css',
+        'public/css/sqt.css',
+        'public/css/about.css'
+      ]
     },
     concat: {
       production: {
@@ -73,23 +105,32 @@ module.exports = function (grunt) {
       }
     },
     cssmin: {
+      options: {
+        preserveLicenseComments: false
+      },
       production: {
         src: 'public/css/sarbotte.css',
         dest: 'public/css/sarbotte.min.css'
       }
+    },
+    watch: {
+      files: ['<%= jshint.files %>'],
+      tasks: ['jshint']
     }
   });
 
   // Load tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-css');
 
   // Task definition.
   grunt.registerTask('default', ['jshint', 'less', 'concat', 'cssmin']);
-  grunt.registerTask('heroku', ['jshint', 'less', 'concat', 'cssmin', 'requirejs']);
+  grunt.registerTask('heroku', ['less', 'concat', 'cssmin', 'uglify', 'requirejs']);
   grunt.registerTask('travis', ['jshint']);
 
 };
