@@ -1,0 +1,53 @@
+div.containerS.cf
+  hgroup.page
+    h1
+      a href='/'
+    h2
+      | Application
+  div#application
+
+    form action='/application' method='post' class='form-horizontal' style='text-align: initial;'
+
+      fieldset
+        legend Informations
+
+        = question('Veuillez saisir les informations suivantes')
+        = bsInput('input', 'text', 'prenom', 'Prénom', 'Prénom')
+        = bsInput('input', 'text', 'nom', 'Nom', 'Nom')
+        = bsInput('input', 'text', 'email', 'Email', 'Email', 'Ne sera pas utilisé à des fins commerciales')
+
+      fieldset
+        legend Sarbottisme
+
+        = question('Veuillez décrire de façon succinte et détaillée votre expérience du Sarbottisme')
+        = bsInput('textarea', '', 'experienceSarbottisme', 'Réponse', 'Réponse')
+
+        = question('Comment avez-vous connu Sarbotte Designs ?')
+        = bsInput('textarea', '', 'connuSarbotteDesigns', 'Réponse', 'Réponse')
+
+      fieldset
+        legend Test d'aptitudes
+
+
+        - # js
+        p
+          strong
+            i Que renvoie l'expression suivante en javascript :
+            code typeof NaN
+            i ?
+        = bsInput('textarea', '', 'testJs', 'Réponse', 'Réponse')
+
+        - # js
+        p
+          strong
+            i Quelle technologie web ?
+        div class='control-group'
+          div class='controls'
+            label class='control-label'
+              input type='radio' name='techno'
+              | Struts
+        - # piliers Sarbottisme
+        = question('Quels sont les cinq pilliers du Sarbottisme ')
+        = bsInput('textarea', '', 'pilliersSarbottisme', 'Réponse', 'Réponse')
+
+        button type='submit' class='btn'

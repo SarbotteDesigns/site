@@ -1,28 +1,24 @@
-#Helpers haml pour le formulaire
-helpers do
+#Helpers slim pour le formulaire
 
-  def bsInput(tag, type, name, label = '', placeholder = '', help = '')
-    haml = <<-HAML
-%div{:class=>'control-group'}
-  %label{:class=>'control-label', :for=>"#{name}"}
-    #{label}
-  %div{:class=>'controls'}
-    %#{tag}{:type=>"#{type}", :name=>"#{name}", :id=>"#{name}", :placeholder=>"#{placeholder}", :class=>'input-xlarge'}
-    %span{:class=>'help-block'}
-      %i #{help}
-HAML
-    engine = Haml::Engine.new(haml)
-    engine.render
-  end
+def bsInput(tag, type, name, label = '', placeholder = '', help = '')
+  slim = <<-SLIM
+.control-group
+  label.control-label for='#{name}' #{label}
+  .controls
+    #{tag}.input-xlarge type='#{type}' name='#{name}' id='#{name}' placeholder='#{placeholder}'
+    span.help-block: i #{help}
+  SLIM
+  slim = eval('"' + slim + '"')
+  t = Slim::Template.new { slim }
+  t.render
+end
 
-  def question(question)
-    haml = <<-HAML
-%p
-  %strong
-    %i #{question}
-HAML
-    engine = Haml::Engine.new(haml)
-    engine.render
-  end
-
+def question(question)
+  slim = <<-SLIM
+p:
+  strong: i '#{question}'
+  SLIM
+  slim = eval('"' + slim + '"')
+  t = Slim::Template.new { slim }
+  t.render
 end

@@ -2,7 +2,8 @@
 
 require 'sinatra'
 require 'newrelic_rpm'
-require 'haml'
+#require 'haml'
+require 'slim'
 require 'kramdown'
 require 'sqt'
 require 'json'
@@ -14,15 +15,16 @@ before do
 end
 
 get '/' do
-  haml :index
+  # haml :index
+  slim :index
 end
 
 get '/application/?' do
-  haml :application
+  slim :application
 end
 
 get '/about/?' do
-  haml :about, :locals=>{:title => 'Sarbotte Designs - About us'}
+  slim :about, :locals=>{:title => 'Sarbotte Designs - About us'}
 end
 
 get '/applications/?' do
@@ -30,7 +32,7 @@ get '/applications/?' do
   Dir["public/applications/*.md"].each do |application|
     applicationList << application[/public\/applications\/(.*)\.md/, 1]
   end
-  haml :applications, :locals=>{:applicationList => applicationList}
+  slim :applications, :locals=>{:applicationList => applicationList}
 end
 
 post '/application/?' do
@@ -43,11 +45,11 @@ end
 get '/application/:nom/?' do |nom|
   application = File.open("public/applications/#{nom}.md", "rb:UTF-8").read
   application = Kramdown::Document.new(application).to_html
-  haml :showApplication, :locals=>{:application => application}
+  slim :showApplication, :locals=>{:application => application}
 end
 
 get '/sqt/?' do
-  haml :sqt, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
+  slim :sqt, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
 end
 
 post '/sqt/?' do
@@ -74,7 +76,7 @@ post '/sqt/?' do
 end
 
 get '/sqt/about/?' do
-  haml :sqt_about, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
+  slim :sqt_about, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
 end
 
 get '/ping' do
