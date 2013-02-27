@@ -45,11 +45,13 @@ header role='banner'
                 th Url
                 th sqi
 
-/ Config de dev
-  script data-main='/scripts/sqt.js' src='/scripts/lib/requirejs/require.js' type='text/javascript'
 
-/ Config de prod
-script data-main='/scripts/sqt.min.js' src='/scripts/lib/requirejs/require.min.js' type='text/javascript'
+- if !locals[:option].nil? && locals[:option] == 'debug'
+  / Config de dev
+  script data-main='/scripts/sqt.js' src='/scripts/lib/requirejs/require.js' type='text/javascript'
+- else
+  / Config de prod
+  script data-main='/scripts/sqt.min.js' src='/scripts/lib/requirejs/require.min.js' type='text/javascript'
 
 / Config de superprod avec almond (ne fonctionne pas)
   script src='/scripts/sqt.min.js' type='text/javascript'

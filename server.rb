@@ -48,19 +48,15 @@ get '/application/:nom/?' do |nom|
   slim :showApplication, :locals=>{:application => application}
 end
 
-get '/sqt/?' do
-  slim :sqt, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
+get '/sqt/:option?' do |option|
+  slim :sqt, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool', :option=> option }
 end
 
 post '/sqt/?' do
   content_type :json
   if params[:curly]
     result = SQT.sarbotteCurl(params[:curly], params[:depth].to_i || 0)
-    #  result = [
-    #    {:sqi=>100, :totalLength=>10000, :jsAndCssLength=>0, :uri=>'http://www.google.com'},
-    #    {:sqi=>100, :totalLength=>5000, :jsAndCssLength=>0, :uri=>'http://www.google.com/unpeulong'},
-    #    {:sqi=>0, :totalLength=>10000, :jsAndCssLength=>10000, :uri=>'http://www.google.com/beaucoupbueaoucbeaucoubeaucoubeacuououfdifudofiudfpluslong'}
-    #  ]
+
     result.sort_by! { |a| a[:sqi] }
     sums = result.reduce({:sqi=>0, :totalLength=>0, :jsAndCssLength=>0}) do |total, fP|
       total[:sqi] += fP[:sqi]
