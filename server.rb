@@ -2,11 +2,11 @@
 
 require 'sinatra'
 require 'newrelic_rpm'
-#require 'haml'
 require 'slim'
 require 'kramdown'
 require 'sqt'
 require 'json'
+require 'rsvg2'
 
 require_relative 'lib/sarbotteForm'
 
@@ -15,7 +15,6 @@ before do
 end
 
 get '/' do
-  # haml :index
   slim :index
 end
 
@@ -75,6 +74,12 @@ get '/sqt/about/?' do
   slim :sqt_about, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
 end
 
+get '/sqt/badge/:url' do |url|
+
+ svg_to_png(File.read('views/badge.sarbotte'))
+
+end
+
 get '/ping' do
   'ok'
 end
@@ -85,4 +90,14 @@ end
 
 error do
   'Erreur - ' + env['sinatra.error'].name
+end
+
+def self.svg_to_png(svg)
+  svg = RSVG::Handle.new_from_data(svg)
+  surface = Cairo::ImageSurface.new(Cairo::FORMAT_ARGB32, 800, 800)
+  context = Cairo::Context.new(surface)
+  context.render_rsvg_handle(svg)
+  b = StringIO.new
+  surface.write_to_png(b)
+  return b.string
 end
