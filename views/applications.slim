@@ -1,0 +1,12 @@
+div.containerS.cf
+  hgroup.page
+    h1
+      a href='/'
+    h2
+      | Applications
+
+div id='application' style='width: 600px; padding-top: 10em; margin: auto;'
+  h2 Postulants
+  - applicationList.each do |application|
+    div
+      a{:href=>"/application/#{application}"} # application

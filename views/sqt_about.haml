@@ -1,0 +1,57 @@
+%div#jmpress
+  %div.step{:'data-template'=>"basic"}
+    %div.step
+      %hgroup
+        %h1 h1
+        %h2 h2
+    %div.step s2
+  %div.step{:'data-template'=>"mytemplate"}
+    %div.step
+      %img.img
+      %h2 Ruby
+      %div.details
+        %ul
+          %li Bundle
+          %li Gem
+          %li Colorize
+    %div.step
+      %img.img
+      %h2 NodeJS
+      %div.details
+        %div.img
+        %h2 Grunt
+    %div.step
+      %h2 Client side
+      %div.details
+        %div.img
+        %h2 Ace
+      %div.details
+        %div.img
+        %h2 Requirejs
+      %div.details
+        %div.img
+        %h2 jQuery
+    %div.step
+      %h2 Source
+      %div.details
+        %div.img
+        %h2 Github
+        %div.img
+        %h2 Travis
+    %div.step
+      %h2 Hosting
+      %div.details
+        %div.img
+        %h2 Heroku
+        %div.details
+          %div.img
+          %h2 New Relic
+
+
+
+
+-# Config de dev
+%script{:'data-main'=>"/scripts/sqt_about.js", :src=>"/scripts/lib/requirejs/require.js", :type => "text/javascript"}
+
+-# Config de prod
+  %script{:'data-main'=>"/scripts/sqt.min.js", :src=>"/scripts/lib/requirejs/require.min.js", :type => "text/javascript"}

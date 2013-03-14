@@ -1,0 +1,8 @@
+doctype 5
+html
+  head
+    title= locals[:title] || 'Sarbotte designs'
+    link href="/css/sarbotte.min.css" rel="stylesheet" type="text/css" media="all"
+
+  body
+    #content == yield

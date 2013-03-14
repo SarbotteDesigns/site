@@ -1,0 +1,54 @@
+#jmpress
+  .step data-template='basic'
+    .step
+      hgroup
+        h1 h1
+        h2 h2
+    .step s2
+  .step data-template='mytemplate'
+    .step
+      img.img
+      h2 Ruby
+      .details
+        ul
+          li Bundle
+          li Gem
+          li Colorize
+    .step
+      img.img
+      h2 NodeJS
+      .details
+        .img
+        h2 Grunt
+    .step
+      h2 Client side
+      .details
+        .img
+        h2 Ace
+      .details
+        .img
+        h2 Requirejs
+      .details
+        .img
+        h2 jQuery
+    .step
+      h2 Source
+      .details
+        .img
+        h2 Github
+        .img
+        h2 Travis
+    .step
+      h2 Hosting
+      .details
+        .img
+        h2 Heroku
+        .details
+          .img
+          h2 New Relic
+
+/ Config de dev
+script data-main='/scripts/sqt_about.js' src='/scripts/lib/requirejs/require.js' type='text/javascript'
+
+/ Config de prod
+  script data-main='/scripts/sqt.min.js' src='/scripts/lib/requirejs/require.min.js' type='text/javascript'
