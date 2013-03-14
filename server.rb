@@ -6,7 +6,9 @@ require 'slim'
 require 'kramdown'
 require 'sqt'
 require 'json'
-require 'rmagick'
+require 'RMagick'
+
+include Magick
 
 require_relative 'lib/sarbotteForm'
 
