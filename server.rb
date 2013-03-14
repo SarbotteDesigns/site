@@ -6,7 +6,7 @@ require 'slim'
 require 'kramdown'
 require 'sqt'
 require 'json'
-require 'rsvg2'
+require 'rmagick'
 
 require_relative 'lib/sarbotteForm'
 
@@ -76,7 +76,7 @@ end
 
 get '/sqt/badge/:url' do |url|
 
- svg_to_png(File.read('views/badge.sarbotte'))
+ svg_to_png2(File.read('views/badge.sarbotte'))
 
 end
 
@@ -100,4 +100,9 @@ def self.svg_to_png(svg)
   b = StringIO.new
   surface.write_to_png(b)
   return b.string
+end
+
+def self.svg_to_png2(svg)
+  img = Magick::Image::from_blob(svg)
+  return img[0].to_blob {self.format = 'PNG'}
 end
