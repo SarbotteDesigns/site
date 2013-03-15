@@ -77,9 +77,8 @@ get '/sqt/about/?' do
 end
 
 get '/sqt/badge/:url' do |url|
-
- svg_to_png2(File.read('views/badge.sarbotte'))
-
+  content_type 'image/png'
+  svg_to_png2(File.read('views/badge.sarbotte'))
 end
 
 get '/ping' do
