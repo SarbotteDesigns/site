@@ -101,5 +101,6 @@ end
 
 def svg_to_png2(svg)
   img = Magick::Image::from_blob(svg)
-  return img[0].to_blob {self.format = 'PNG'}
+  img[0].format = 'PNG'
+  return img[0].to_blob
 end
