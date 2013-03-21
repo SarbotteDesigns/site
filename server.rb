@@ -49,10 +49,6 @@ get '/application/:nom/?' do |nom|
   slim :showApplication, :locals=>{:application => application}
 end
 
-get '/sqt/:option?' do |option|
-  slim :sqt, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool', :option=> option }
-end
-
 post '/sqt/?' do
   content_type :json
   if params[:curly]
@@ -78,7 +74,7 @@ end
 
 get '/sqt/badge/:url' do |url|
   content_type 'image/png'
-  svg_to_png2(File.read('views/badge.sarbotte'))
+  return svg_to_png2(File.read('views/badge.sarbotte'))
 end
 
 get '/ping' do
