@@ -99,8 +99,8 @@ def self.svg_to_png(svg)
   return b.string
 end
 
-def svg_to_png2(svg)
+def self.svg_to_png2(svg)
   img = Magick::Image::from_blob(svg)
   img[0].format = 'PNG'
-  return img[0].end
-to_blob
+  return img[0].to_blob
+end
