@@ -74,7 +74,7 @@ end
 
 get '/sqt/badge/:url' do |url|
   content_type 'image/png'
-  return svg_to_png2(File.read('views/badge.sarbotte'))
+  send_file svg_to_png2(File.read('views/badge.sarbotte'))
 end
 
 get '/ping' do
@@ -102,5 +102,5 @@ end
 def svg_to_png2(svg)
   img = Magick::Image::from_blob(svg)
   img[0].format = 'PNG'
-  return img[0].to_blob
-end
+  return img[0].end
+to_blob
