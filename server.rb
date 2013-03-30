@@ -70,7 +70,7 @@ get '/sqt/about/?' do
 end
 
 get '/sqt/badge/:url/?:depth?' do |url, depth|
-  result = SQT.sarbotteCurl(URI.unescape(url), depth.to_i || 0)
+  result = SQT.sarbotteCurl(URI.unescape(url), (depth && depth.to_i) || 0)
   content_type 'image/png'
   if result && result[:sqi] && result[:sqi].is_a?(Integer)
     send_file "public/images/badges/sqt/png/sqt_#{result[:sqi].to_i}.png"
