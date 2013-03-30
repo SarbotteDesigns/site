@@ -69,10 +69,14 @@ get '/sqt/about/?' do
   slim :sqt_about, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
 end
 
-get '/sqt/badge/:url' do |url|
-  result = SQT.sarbotteString(URI.unescape(url))
+get '/sqt/badge/:url/:depth' do |url, depth|
+  result = SQT.sarbotteCurl(CGI::unescape(url), depth.to_i || 0)
   content_type 'image/png'
-  send_file "public/images/badges/sqt/png/sqt_#{result[:sqi].to_i}.png"
+  if result && result[:sqi] && result[:sqi].is_a?(Integer)
+    send_file "public/images/badges/sqt/png/sqt_#{result[:sqi].to_i}.png"
+  else
+    send_file "public/images/badges/sqt/png/sqt_na.png"
+  end
 end
 
 get '/ping' do
