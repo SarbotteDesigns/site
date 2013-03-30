@@ -62,7 +62,11 @@ post '/sqt/?' do
       total[:jsAndCssLength] += fP[:jsAndCssLength]
       total
     end
-    average = {:sqi=>sums[:sqi]/result.size, :totalLength=>sums[:totalLength]/result.size, :jsAndCssLength=>sums[:jsAndCssLength]/result.size}
+    average = {
+      :sqi=>sums[:sqi].to_f/result.size,
+      :totalLength=>sums[:totalLength].to_f/result.size,
+      :jsAndCssLength=>sums[:jsAndCssLength].to_f/result.size
+    }
 
     {:sqr=>{ :average=>average, :result=>result}  }.to_json
   else { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
@@ -76,11 +80,14 @@ end
 get '/sqt/badge/:url/?:depth?' do |url, depth|
   content_type 'image/png'
   begin
-    result = SQT.sarbotteCurl("http://www.sarbotte-designs.com", 0)
-    puts result
-    send_file "public/images/badges/sqt/png/sqt_#{(result[:sqi]).to_i}.png"
+    result = SQT.sarbotteCurl(URI.unescape(url), (depth || 0).to_i )
+    sums = result.reduce({:sqi=>0}) do |total, fP|
+      total[:sqi] += fP[:sqi]
+      total
+    end
+    average = {:sqi=>sums[:sqi].to_f/result.size}
+    send_file "public/images/badges/sqt/png/sqt_#{average[:sqi].to_i}.png"
   rescue Exception => error
-    puts error
     send_file "public/images/badges/sqt/png/sqt_na.png"
   end
 end
