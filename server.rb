@@ -46,6 +46,10 @@ get '/application/:nom/?' do |nom|
   slim :showApplication, :locals=>{:application => application}
 end
 
+get '/sqt/?' do
+  slim :sqt, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
+end
+
 post '/sqt/?' do
   content_type :json
   if params[:curly]
@@ -65,9 +69,9 @@ post '/sqt/?' do
   end
 end
 
-get '/sqt/about/?' do
-  slim :sqt_about, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
-end
+#get '/sqt/about/?' do
+#  slim :sqt_about, :locals=>{:title => 'Sarbotte Designs - Sarbotte Quality Tool'}
+#end
 
 get '/sqt/badge/:url/?:depth?' do |url, depth|
   result = SQT.sarbotteCurl(URI.unescape(url), (depth && depth.to_i) || 0)
