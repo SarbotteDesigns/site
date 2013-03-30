@@ -76,16 +76,16 @@
     <path d="M0,9 v-6 q0,-3,3,-3 v18 q-3,0,-3,-3 Z" fill="url(#gray)" />
     <rect x="3" y="0" width="30" height="18" fill="url(#gray)" />
     <text x="6" y="12" font-family="Open Sans" font-size="10" fill="#FFFFFF" style="filter:url(#dropshadow)">
-      property
+      SQT
     </text>
   </g>
 
   <g id="status">
 
-    <rect id="svg_4" fill="url(#colorValue)" height="18" width="26.6" y="0.00" x="33"/>
-    <path id="svg_5" d="m62,9l0,-6q0,-3 -3,-3l0,18q3,0 3,-3l0,-6z" fill="url(#colorValue)"/>
+    <rect id="svg_4" fill="url(#0-50)" height="18" width="26.6" y="0.00" x="33"/>
+    <path id="svg_5" d="m62,9l0,-6q0,-3 -3,-3l0,18q3,0 3,-3l0,-6z" fill="url(#0-50)"/>
     <text id="svg_6" filter="url(#dropshadow)" fill="#FFFFFF" font-size="10" font-family="Open Sans" y="12" x="38">
-      value
+      34
     </text>
   </g>
 </svg>

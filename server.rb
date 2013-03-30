@@ -6,9 +6,6 @@ require 'slim'
 require 'kramdown'
 require 'sqt'
 require 'json'
-require 'RMagick'
-
-include Magick
 
 require_relative 'lib/sarbotteForm'
 
@@ -73,8 +70,9 @@ get '/sqt/about/?' do
 end
 
 get '/sqt/badge/:url' do |url|
+  result = SQT.sarbotteString(URI.unescape(url))
   content_type 'image/png'
-  send_file svg_to_png2(File.read('views/badge.sarbotte'))
+  send_file "public/images/badges/sqt/png/sqt_#{result[:sqi].to_i}.png"
 end
 
 get '/ping' do
@@ -87,20 +85,4 @@ end
 
 error do
   'Erreur - ' + env['sinatra.error'].name
-end
-
-def self.svg_to_png(svg)
-  svg = RSVG::Handle.new_from_data(svg)
-  surface = Cairo::ImageSurface.new(Cairo::FORMAT_ARGB32, 800, 800)
-  context = Cairo::Context.new(surface)
-  context.render_rsvg_handle(svg)
-  b = StringIO.new
-  surface.write_to_png(b)
-  return b.string
-end
-
-def self.svg_to_png2(svg)
-  img = Magick::Image::from_blob(svg)
-  img[0].format = 'PNG'
-  return img[0].to_blob
 end
