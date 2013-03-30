@@ -78,7 +78,7 @@ get '/sqt/badge/:url/?:depth?' do |url, depth|
   begin
     result = SQT.sarbotteCurl("http://www.sarbotte-designs.com", 0)
     puts result
-    send_file "public/images/badges/sqt/png/sqt_#{result[:sqi].to_i}.png"
+    send_file "public/images/badges/sqt/png/sqt_#{(result[:sqi]).to_i}.png"
   rescue Exception => error
     puts error
     send_file "public/images/badges/sqt/png/sqt_na.png"
