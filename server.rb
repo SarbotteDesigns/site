@@ -87,6 +87,6 @@ not_found do
   'Page non trouvée.'
 end
 
-#error do
-#  'Erreur - ' + env['sinatra.error']
-#end
+error do
+  env['sinatra.error']
+end
