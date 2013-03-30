@@ -88,5 +88,5 @@ not_found do
 end
 
 error do
-  env['sinatra.error']
+  'Erreur - ' + env['sinatra.error']
 end
