@@ -68,7 +68,13 @@ post '/sqt/?' do
       :jsAndCssLength=>sums[:jsAndCssLength].to_f/result.size
     }
 
-    {:sqr=>{ :average=>average, :result=>result}  }.to_json
+    {
+      :sqr=>{
+        :average=>average,
+        :result=>result,
+        :badge=> "public/images/badges/sqt/png/sqt_#{average[:sqi].to_i}.png"
+      }
+    }.to_json
   else { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json
   end
 end
