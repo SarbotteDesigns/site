@@ -6,6 +6,7 @@ require 'slim'
 require 'kramdown'
 require 'sqt'
 require 'json'
+require 'mongo' #bson_ext
 
 require_relative 'lib/sarbotteForm'
 
@@ -21,8 +22,19 @@ get '/application/?' do
   slim :application
 end
 
+def get_connection
+  return @db_connection if @db_connection
+  db = URI.parse(ENV['MONGOHQ_URL'])
+  db_name = db.path.gsub(/^\//, '')
+  @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+  @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+  @db_connection
+end
+
 get '/about/?' do
-  slim :about, :locals=>{:title => 'Sarbotte Designs - About us'}
+  db = get_connection
+  investors = db.collection('investors').find().sort({:euroValue => -1})
+  slim :about, :locals=>{:title => 'Sarbotte Designs - About us', :investors => investors}
 end
 
 get '/applications/?' do
