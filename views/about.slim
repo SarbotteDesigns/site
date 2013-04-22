@@ -19,8 +19,9 @@ script data-main='scripts/require_ga.js' src='scripts/require.min.js' type='text
         th Amount
       - for investor in locals[:investors]
         tr
-          td = investor.name
-          td = investor.value + investor.currency
+          td = investor['name']
+          td = "#{investor['value']} #{investor['currency']}"
+
 
     h3 Contact
     span.contact
