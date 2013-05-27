@@ -79,12 +79,13 @@ post '/sqt/?' do
       :totalLength=>sums[:totalLength].to_f/result.size,
       :jsAndCssLength=>sums[:jsAndCssLength].to_f/result.size
     }
-
+    depthForBadge = params[:depth].to_i && params[:depth].to_i != 0 ? "/#{params[:depth].to_i}" : ''
     {
       :sqr=>{
         :average=>average,
         :result=>result,
-        :badge=> "public/images/badges/sqt/png/sqt_#{average[:sqi].to_i}.png"
+        :badge=> "/images/badges/sqt/png/sqt_#{average[:sqi].to_i}.png",
+        :badgeUrl=> "http://www.sarbotte-designs.com/sqt/badge/#{CGI.escape(params[:curly])}#{depthForBadge}"
       }
     }.to_json
   else { :sqr => SQT.sarbotteString(params[:sarbotte]) }.to_json

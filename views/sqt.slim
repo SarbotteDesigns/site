@@ -26,15 +26,21 @@ header role='banner'
         h3.sqt Your results
         .results
           div
-            b Total:
+            b Total:&#32;
             span#total
-            span  bytes
+            span &#32;bytes
           div
-            b Js & Css:
+            b Js & Css:&#32;
             span#jsAndCss
-            span  bytes
+            span &#32;bytes
+          div
+            b Badge:&#32;
+            img#badge
+
+            / b Badge url:&#32;
+            span#badgeUrl
           #sqi_parent
-            b Sarbotte Quality Index :
+            b Sarbotte Quality Index:&#32;
             #sqi
               span.sqi
               span.comment
@@ -46,12 +52,12 @@ header role='banner'
                 th sqi
 
 
-- if !locals[:option].nil? && locals[:option] == 'debug'
+
   / Config de dev
   script data-main='/scripts/sqt.js' src='/scripts/lib/requirejs/require.js' type='text/javascript'
-- else
+
   / Config de prod
-  script data-main='/scripts/sqt.min.js' src='/scripts/lib/requirejs/require.min.js' type='text/javascript'
+script data-main='/scripts/sqt.min.js' src='/scripts/lib/requirejs/require.min.js' type='text/javascript'
 
 / Config de superprod avec almond (ne fonctionne pas)
   script src='/scripts/sqt.min.js' type='text/javascript'

@@ -27,6 +27,9 @@ requirejs(
       $('#sqi .sqi').css('color', '#DEDEDE');
       $('.result-tr').remove();
       $('.result-header').css('display', 'none');
+      $('#badge').parent()
+        .add($('#badgeUrl').parent())
+        .css('display', 'none');
     };
 
     editor.getSession().on('change', debounce(function () {
@@ -71,13 +74,26 @@ requirejs(
     };
 
      // Update sqi display
-    var updateSqiDisplay = function (sqr) {
+    var updateSqiDisplay = function (sqr, badge, badgeUrl) {
       var sqiDisplaySetting = getClosestSqiScore(sqr.sqi);
       $('#total').html(sqr.totalLength);
       $('#jsAndCss').html(sqr.jsAndCssLength);
       $('#sqi .sqi').html((Math.round(sqr.sqi * 100) / 100).toFixed(2))
         .css('color', sqiDisplaySetting.color);
       $('#sqi .comment').html(sqiDisplaySetting.message);
+      if (typeof badge !== 'undefined' && badge !== null) {
+        $('#badge').parent()
+          .add($('#badgeUrl').parent())
+          .css('display', 'block');
+        $('#badge').attr('src', badge);
+        var badgeLink = $('<span/>', {html: ' - '});
+        var link = $('<a/>', {href: badgeUrl, html: 'badge url'});
+        $('#badgeUrl').empty().append(badgeLink, link);
+      } else {
+        $('#badge').parent()
+          .add($('#badgeUrl').parent())
+          .css('display', 'none');
+      }
     };
 
      // Update sqi display
@@ -122,7 +138,7 @@ requirejs(
             }
           }).done(function (data) {
             _gaq.push(['_trackEvent', 'SQT - Site', 'Result', data.sqr.average.sqi]);
-            updateSqiDisplay(data.sqr.average);
+            updateSqiDisplay(data.sqr.average, data.sqr.badge, data.sqr.badgeUrl);
             updateSqiDetailsDisplay(data.sqr.result);
             $('button', self).html('Ok').removeAttr('disabled');
           }).fail(function ()     {
